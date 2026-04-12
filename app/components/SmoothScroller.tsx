@@ -5,6 +5,13 @@ import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+declare global {
+    interface Window {
+        lenis?: Lenis;
+        isModalOpen?: boolean;
+    }
+}
+
 export default function SmoothScroller({ children }: { children: React.ReactNode }) {
     useEffect(() => {
         // Register GSAP plugins
@@ -21,6 +28,9 @@ export default function SmoothScroller({ children }: { children: React.ReactNode
             touchMultiplier: 2,
         });
 
+        // Expose lenis for global control (e.g. stopping scroll in modals)
+        window.lenis = lenis;
+
         lenis.on("scroll", ScrollTrigger.update);
 
         gsap.ticker.add((time) => {
@@ -30,6 +40,7 @@ export default function SmoothScroller({ children }: { children: React.ReactNode
         gsap.ticker.lagSmoothing(0);
 
         return () => {
+            window.lenis = undefined;
             lenis.destroy();
             gsap.ticker.remove((time) => lenis.raf(time * 1000));
         };

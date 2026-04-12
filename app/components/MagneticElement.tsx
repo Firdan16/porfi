@@ -1,56 +1,57 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
-import { gsap } from "gsap";
+import React, { useEffect, useRef } from "react";
 
-interface MagneticElementProps {
+interface MagneticElementProps extends React.HTMLAttributes<HTMLElement> {
     children: React.ReactNode;
     className?: string;
     as?: React.ElementType;
+    [key: string]: unknown;
 }
 
-export default function MagneticElement({ children, className = "", as: Component = "div" }: MagneticElementProps) {
+export default function MagneticElement({
+    children,
+    className = "",
+    as: Component = "div",
+    ...props
+}: MagneticElementProps) {
     const elementRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
         const element = elementRef.current;
-        if (!element) return;
+        if (!element || window.matchMedia("(hover: none)").matches) return;
 
-        const handleMouseMove = (e: MouseEvent) => {
+        let frameId = 0;
+        const strength = 12;
+
+        const handlePointerMove = (event: PointerEvent) => {
             const rect = element.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            const strength = 12;
+            const offsetX = (event.clientX - rect.left - rect.width / 2) / strength;
+            const offsetY = (event.clientY - rect.top - rect.height / 2) / strength;
 
-            gsap.to(element, {
-                x: x / strength,
-                y: y / strength,
-                duration: 0.4,
-                ease: "power2.out",
+            cancelAnimationFrame(frameId);
+            frameId = window.requestAnimationFrame(() => {
+                element.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0)`;
             });
         };
 
-        const handleMouseLeave = () => {
-            gsap.to(element, {
-                x: 0,
-                y: 0,
-                duration: 1.2,
-                ease: "elastic.out(1, 0.3)",
-            });
+        const handlePointerLeave = () => {
+            cancelAnimationFrame(frameId);
+            element.style.transform = "translate3d(0, 0, 0)";
         };
 
-        element.addEventListener("mousemove", handleMouseMove);
-        element.addEventListener("mouseleave", handleMouseLeave);
+        element.addEventListener("pointermove", handlePointerMove);
+        element.addEventListener("pointerleave", handlePointerLeave);
 
         return () => {
-            element.removeEventListener("mousemove", handleMouseMove);
-            element.removeEventListener("mouseleave", handleMouseLeave);
-            gsap.killTweensOf(element);
+            cancelAnimationFrame(frameId);
+            element.removeEventListener("pointermove", handlePointerMove);
+            element.removeEventListener("pointerleave", handlePointerLeave);
         };
     }, []);
 
     return (
-        <Component ref={elementRef} className={`magnetic-target ${className}`}>
+        <Component ref={elementRef} className={`magnetic-target ${className}`} {...props}>
             {children}
         </Component>
     );

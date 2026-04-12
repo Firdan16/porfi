@@ -1,6 +1,9 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import MagneticElement from "./MagneticElement";
+import Link from "next/link";
+import AppIcon from "./AppIcon";
 
 export default function Header() {
     const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
@@ -16,62 +19,129 @@ export default function Header() {
         }
     };
 
+    const navRef = useRef<HTMLDivElement>(null);
+    const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.isModalOpen) {
+                if (navRef.current) {
+                    gsap.to(navRef.current, { y: -100, opacity: 0, duration: 0.3 });
+                }
+                return;
+            }
+
+            if (scrollTimeout.current) {
+                clearTimeout(scrollTimeout.current);
+            }
+
+            // Always hide when scrolling starts or continues
+            if (navRef.current) {
+                gsap.to(navRef.current, {
+                    y: -100,
+                    opacity: 0,
+                    duration: 0.4,
+                    ease: "power3.out",
+                });
+            }
+
+            // Show after scrolling stops
+            scrollTimeout.current = setTimeout(() => {
+                if (window.isModalOpen) return;
+
+                if (navRef.current) {
+                    gsap.to(navRef.current, {
+                        y: 0,
+                        opacity: 1,
+                        duration: 0.4,
+                        ease: "power3.out",
+                    });
+                }
+            }, 300); // Wait 300ms after scroll stops
+        };
+
+        const handleModalToggle = () => {
+            if (window.isModalOpen) {
+                gsap.to(navRef.current, { y: -100, opacity: 0, duration: 0.5, ease: "expo.out" });
+            } else {
+                // Only show if not scrolling? Or just show.
+                gsap.to(navRef.current, { y: 0, opacity: 1, duration: 0.5, ease: "expo.out" });
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("modalToggle", handleModalToggle);
+        
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("modalToggle", handleModalToggle);
+            if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
+        };
+    }, []);
+
+    const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+        window.history.pushState(null, "", "/");
+    };
+
     return (
         <header
-            className="fixed top-0 z-40 w-full flex items-center justify-between glass-nav px-6 py-4 md:px-10 transition-all duration-300"
+            className="fixed top-6 left-0 z-50 w-full flex justify-center pointer-events-none"
             id="main-header"
         >
-            <div className="flex items-center gap-4 text-text-primary z-10">
-                <MagneticElement
-                    className="tactile-btn flex h-12 w-12 items-center justify-center rounded-full text-primary relative z-10 group shrink-0"
-                    as="div"
-                >
-                    <span className="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform duration-300">
-                        architecture
-                    </span>
-                </MagneticElement>
-                <h2 className="text-text-primary text-xl font-bold leading-tight tracking-tight raised-text">
-                    The Architect
-                </h2>
-            </div>
-            <div className="hidden md:flex flex-1 justify-end gap-8 items-center z-10">
-                <nav className="flex items-center gap-2 ml-4 p-1 rounded-full bg-[#E9ECEF] shadow-inner border border-white/50">
-                    <a
-                        className="px-5 py-2 rounded-full text-text-secondary text-sm font-bold hover:text-primary transition-all duration-200 hover:bg-white hover:shadow-sm"
-                        href="#work"
-                        onClick={(e) => handleSmoothScroll(e, "#work")}
-                    >
-                        Work
-                    </a>
-                    <a
-                        className="px-5 py-2 rounded-full text-text-secondary text-sm font-bold hover:text-primary transition-all duration-200 hover:bg-white hover:shadow-sm"
-                        href="#stack"
-                        onClick={(e) => handleSmoothScroll(e, "#stack")}
-                    >
-                        Stack
-                    </a>
-                    <a
-                        className="px-5 py-2 rounded-full text-text-secondary text-sm font-bold hover:text-primary transition-all duration-200 hover:bg-white hover:shadow-sm"
-                        href="#contact"
-                        onClick={(e) => handleSmoothScroll(e, "#contact")}
-                    >
-                        Contact
-                    </a>
+            <div className="pointer-events-auto" ref={navRef}>
+                <nav className="flex items-center gap-1 sm:gap-1 md:gap-1.5 p-1.5 md:p-1.5 rounded-full glass-nav shadow-skeuo-float border border-white/40">
+                    <MagneticElement as="div">
+                        <Link
+                            className="px-3 sm:px-4 md:px-6 py-2 md:py-2.5 rounded-full text-text-secondary text-xs md:text-base font-bold hover:text-primary transition-all duration-300 hover:bg-white/80 hover:shadow-sm flex items-center gap-1.5 md:gap-2 group"
+                            href="/"
+                            onClick={handleHomeClick}
+                        >
+                            <AppIcon name="home" className="h-4 w-4 md:h-5 md:w-5 opacity-50 group-hover:opacity-100 transition-opacity" />
+                            <span className="hidden xs:inline">Home</span>
+                            <span className="xs:hidden">Home</span>
+                        </Link>
+                    </MagneticElement>
+
+                    <div className="w-[1px] h-6 bg-border-subtle/30 mx-0.5 sm:mx-1"></div>
+
+                    <MagneticElement as="div">
+                        <a
+                            className="px-3 sm:px-4 md:px-6 py-2 md:py-2.5 rounded-full text-text-secondary text-xs md:text-base font-bold hover:text-primary transition-all duration-300 hover:bg-white/80 hover:shadow-sm flex items-center gap-1.5 md:gap-2 group"
+                            href="#stack"
+                            onClick={(e) => handleSmoothScroll(e, "#stack")}
+                        >
+                            <AppIcon name="hub" className="h-4 w-4 md:h-5 md:w-5 opacity-50 group-hover:opacity-100 transition-opacity" />
+                            Stack
+                        </a>
+                    </MagneticElement>
+
+                    <MagneticElement as="div">
+                        <a
+                            className="px-3 sm:px-4 md:px-6 py-2 md:py-2.5 rounded-full text-text-secondary text-xs md:text-base font-bold hover:text-primary transition-all duration-300 hover:bg-white/80 hover:shadow-sm flex items-center gap-1.5 md:gap-2 group"
+                            href="#work"
+                            onClick={(e) => handleSmoothScroll(e, "#work")}
+                        >
+                            <AppIcon name="work" className="h-4 w-4 md:h-5 md:w-5 opacity-50 group-hover:opacity-100 transition-opacity" />
+                            Work
+                        </a>
+                    </MagneticElement>
+
+                    <MagneticElement as="div">
+                        <a
+                            className="px-3 sm:px-4 md:px-6 py-2 md:py-2.5 rounded-full text-text-secondary text-xs md:text-base font-bold hover:text-primary transition-all duration-300 hover:bg-white/80 hover:shadow-sm flex items-center gap-1.5 md:gap-2 group"
+                            href="#contact"
+                            onClick={(e) => handleSmoothScroll(e, "#contact")}
+                        >
+                            <AppIcon name="alternate_email" className="h-4 w-4 md:h-5 md:w-5 opacity-50 group-hover:opacity-100 transition-opacity" />
+                            Contact
+                        </a>
+                    </MagneticElement>
                 </nav>
-                <MagneticElement
-                    className="tactile-btn-primary rounded-full h-11 px-6 flex items-center justify-center text-sm font-bold tracking-wide shrink-0"
-                    as="button"
-                >
-                    <span className="relative z-10 drop-shadow-md">TERMINAL ACCESS</span>
-                </MagneticElement>
-            </div>
-            <div className="md:hidden z-10">
-                <MagneticElement
-                    className="tactile-btn rounded-full h-12 w-12 flex items-center justify-center text-text-primary"
-                    as="button"
-                >
-                    <span className="material-symbols-outlined">menu</span>
-                </MagneticElement>
             </div>
         </header>
     );

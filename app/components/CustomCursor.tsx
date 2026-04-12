@@ -8,6 +8,9 @@ export default function CustomCursor() {
     useEffect(() => {
         const cursorDot = cursorDotRef.current;
         const cursorOutline = cursorOutlineRef.current;
+        const isTouch = window.matchMedia("(hover: none)").matches;
+
+        if (isTouch) return;
 
         const handleMouseMove = (e: MouseEvent) => {
             const posX = e.clientX;
