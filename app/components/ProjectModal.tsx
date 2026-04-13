@@ -12,6 +12,8 @@ interface Project {
     images: string[];
     features: { icon: string; text: string; description?: string }[];
     color: string;
+    playStoreUrl?: string;
+    appStoreUrl?: string;
 }
 
 interface ProjectModalProps {

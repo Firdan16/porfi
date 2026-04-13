@@ -20,6 +20,8 @@ interface Project {
     tech: string[];
     layout: "normal" | "reverse";
     color: string;
+    playStoreUrl?: string;
+    appStoreUrl?: string;
 }
 
 const PROJECTS_DATA: Project[] = [
@@ -39,19 +41,20 @@ const PROJECTS_DATA: Project[] = [
         ],
         features: [
             { icon: "explore", text: "Qibla Compass Engine", description: "High-precision directional logic using mobile sensors." },
-            { icon: "sync", text: "Supabase Real-time", description: "Instant data sync across devices with low latency." },
+            { icon: "sync", text: "Real-time Sync", description: "Instant data sync across devices with low latency." },
             { icon: "schedule", text: "Prayer Time Algorithm", description: "Accurate calculation based on geolocation coordinates." },
             { icon: "groups", text: "Social Community", description: "Connect with others through shared religious goals." }
         ],
-        tech: ["Flutter", "Supabase", "PostgreSQL", "Riverpod", "Bloc"],
+        tech: ["Flutter", "Bloc", "Google Maps API"],
         layout: "normal",
-        color: "#0f172a"
+        color: "#0f172a",
+        playStoreUrl: "https://play.google.com/store/apps/details?id=id.bapli.idrisiyyah&hl=id",
     },
     {
         id: 2,
         title: "Photo AI",
         description: "AI-powered image generation and editing suite. Leverages Google Gemini via Firebase Cloud Functions to transform text prompts and existing photos into high-quality AI art.",
-        category: "AI / Cloud",
+        category: "Mobile App",
         version: "RELEASED",
         mainImage: "/assets/photo-ai/Photo-ai-main-1.png",
         images: [
@@ -67,9 +70,9 @@ const PROJECTS_DATA: Project[] = [
             { icon: "brush", text: "AI Style Transfer", description: "Apply artistic styles to any photograph instantly." },
             { icon: "security", text: "Secure Auth Layer", description: "Robust user authentication with Firebase Auth." }
         ],
-        tech: ["Flutter", "Firebase", "Google Gemini API", "TypeScript", "Node.js"],
+        tech: ["Flutter", "Firebase", "Vertex AI", "Node.js"],
         layout: "reverse",
-        color: "#1e1b4b"
+        color: "#1e1b4b",
     },
     {
         id: 3,
@@ -91,7 +94,7 @@ const PROJECTS_DATA: Project[] = [
             { icon: "psychology", text: "AI Narrator Logic", description: "LLM-powered storytelling with consistent world-building." },
             { icon: "palette", text: "Thematic UI Skins", description: "Visual styles that adapt to the current story genre." }
         ],
-        tech: ["Flutter", "Vertex AI", "Python", "Firebase", "FVM"],
+        tech: ["Flutter", "Vertex AI", "OpenAI", "Python", "Firebase"],
         layout: "normal",
         color: "#27272a"
     }
@@ -233,6 +236,52 @@ export default function Projects() {
                                                 </div>
                                             ))}
                                         </div>
+
+                                        {(project.playStoreUrl || project.appStoreUrl) && (
+                                            <div className="mt-4 pt-6 border-t border-black/5 flex flex-col items-start gap-4">
+                                                <span className="text-[10px] font-black text-text-secondary opacity-30 uppercase tracking-[0.2em] leading-none">Marketplace</span>
+                                                <div className="flex flex-wrap gap-3">
+                                                    {project.playStoreUrl && (
+                                                        <a
+                                                            href={project.playStoreUrl}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            onClick={(e) => e.stopPropagation()}
+                                                            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-white shadow-skeuo-btn border border-black/5 text-text-primary transition-all duration-500 hover:scale-[1.05] hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:border-primary/30 active:scale-[0.95] group/play"
+                                                        >
+                                                            <div className="h-8 w-8 rounded-lg bg-[#FAFBFD] flex items-center justify-center shadow-inner group-hover/play:bg-primary/5 transition-all duration-500 group-hover/play:scale-110">
+                                                                <svg className="w-4 h-4 text-primary transition-transform duration-500 group-hover/play:rotate-[10deg]" viewBox="0 0 24 24" fill="currentColor">
+                                                                    <path d="M3.609 1.814L13.792 12 3.609 22.186c-.145.145-.33.226-.525.226-.411 0-.745-.334-.745-.745V2.559c0-.411.334-.745.745-.745.195 0 .38.081.525.226zM14.5 12.707l2.833 2.833L4.475 22.404C10.518 18.916 14.5 12.707 14.5 12.707zM17.333 8.46l-2.833 2.833C14.5 11.293 10.518 5.084 4.475 1.596L17.333 8.46zM18.041 8.837l4.145 2.232c.504.271.504.757 0 1.028l-4.145 2.232L15.207 12l2.834-3.163z" />
+                                                                </svg>
+                                                            </div>
+                                                            <div className="flex flex-col leading-tight">
+                                                                <span className="text-[8px] opacity-50 font-bold uppercase tracking-widest group-hover/play:text-primary transition-colors">Available on</span>
+                                                                <span className="text-xs sm:text-sm font-black tracking-tight group-hover/play:text-primary transition-colors">Google Play</span>
+                                                            </div>
+                                                        </a>
+                                                    )}
+                                                    {project.appStoreUrl && (
+                                                        <a
+                                                            href={project.appStoreUrl}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            onClick={(e) => e.stopPropagation()}
+                                                            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-white shadow-skeuo-btn border border-black/5 text-text-primary transition-all duration-500 hover:scale-[1.05] hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(0,122,255,0.08)] hover:border-[#007AFF]/30 active:scale-[0.95] group/apple"
+                                                        >
+                                                            <div className="h-8 w-8 rounded-lg bg-[#FAFBFD] flex items-center justify-center shadow-inner group-hover/apple:bg-[#007AFF]/5 transition-all duration-500 group-hover/apple:scale-110">
+                                                                <svg className="w-4 h-4 text-[#007AFF] transition-transform duration-500 group-hover/apple:-rotate-[10deg]" viewBox="0 0 24 24" fill="currentColor">
+                                                                    <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,21.97C7.81,22 6.85,20.65 6,19.45C4.27,16.92 3,12.31 4.72,9.29C5.58,7.77 7.15,6.81 8.85,6.79C10.13,6.76 11.35,7.65 12.13,7.65C12.91,7.65 14.39,6.57 15.92,6.72C16.57,6.75 18.37,6.98 19.5,8.63C19.42,8.68 17.27,9.93 17.29,12.43C17.3,15.41 19.86,16.39 19.89,16.41C19.87,16.48 19.47,17.81 18.71,19.5M15.1,3C15.5,3 16.4,3.47 16.89,4.14C17.38,4.81 17.2,6.17 16.8,6.83C16.4,7.5 15.5,7.97 15.01,7.3C14.52,6.63 14.7,5.27 15.1,4.61C15.1,4.61 14.8,3.2 15.1,3" />
+                                                                </svg>
+                                                            </div>
+                                                            <div className="flex flex-col leading-tight">
+                                                                <span className="text-[8px] opacity-50 font-bold uppercase tracking-widest group-hover/apple:text-[#007AFF] transition-colors">Available on</span>
+                                                                <span className="text-xs sm:text-sm font-black tracking-tight group-hover/apple:text-[#007AFF] transition-colors">App Store</span>
+                                                            </div>
+                                                        </a>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </div>
