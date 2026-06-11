@@ -127,7 +127,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, isClosing,
 
                 <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 overflow-visible lg:overflow-hidden">
                     {/* Left Section: Info */}
-                    <div className="lg:col-span-12 xl:col-span-5 px-6 md:px-14 pt-12 md:pt-16 pb-12 md:pb-16 space-y-6 md:space-y-10 lg:overflow-y-auto custom-scrollbar bg-white relative z-20 flex flex-col items-center md:items-start text-center md:text-left">
+                    <div className="lg:col-span-12 xl:col-span-5 px-6 md:px-12 xl:px-14 pt-10 md:pt-12 xl:pt-14 pb-10 md:pb-12 xl:pb-14 space-y-6 lg:overflow-y-auto xl:overflow-y-hidden custom-scrollbar bg-white relative z-20 flex flex-col justify-between items-center md:items-start text-center md:text-left">
                         <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-primary/5 border border-primary/10 text-primary font-mono text-[9px] md:text-xs font-black uppercase tracking-widest w-fit">
                             <span className="relative flex h-1.5 w-1.5">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -136,17 +136,17 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, isClosing,
                             {project.category}
                         </div>
                         
-                        <h2 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-text-primary tracking-tighter leading-[0.85] raised-text -mt-2">
+                        <h2 className="text-4xl md:text-6xl xl:text-8xl font-black text-text-primary tracking-tighter leading-[0.85] raised-text -mt-2">
                             {project.title}
                         </h2>
 
-                        <p className="text-sm md:text-lg lg:text-xl text-text-secondary/80 leading-relaxed font-serif italic max-w-2xl border-l-0 md:border-l-[3px] border-primary px-4 md:pl-6 opacity-90">
+                        <p className="text-sm md:text-lg xl:text-xl text-text-secondary/80 leading-relaxed font-serif italic max-w-2xl border-l-0 md:border-l-[3px] border-primary px-4 md:pl-6 opacity-90">
                             &ldquo;{project.description}&rdquo;
                         </p>
 
-                        <div className="w-full pt-8 grid grid-cols-2 gap-y-8 gap-x-8 border-t border-black/5">
+                        <div className="w-full pt-6 xl:pt-8 grid grid-cols-2 gap-y-6 gap-x-6 xl:gap-x-8 border-t border-black/5">
                             {project.features.map((feature, idx) => (
-                                <div key={idx} className="flex flex-col items-center md:items-start gap-4 group">
+                                <div key={idx} className="flex flex-col items-center md:items-start gap-3.5 group">
                                     <div className="h-10 w-10 md:h-12 md:w-12 rounded-xl md:rounded-2xl bg-[#F8FAFC] shadow-skeuo-btn flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 flex-shrink-0">
                                         <AppIcon name={feature.icon} className="h-5 w-5 md:h-6 md:w-6" />
                                     </div>

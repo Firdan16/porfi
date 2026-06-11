@@ -97,6 +97,56 @@ const PROJECTS_DATA: Project[] = [
         tech: ["Flutter", "Vertex AI", "OpenAI", "Python", "Firebase"],
         layout: "normal",
         color: "#27272a"
+    },
+    {
+        id: 4,
+        title: "LifeOS",
+        description: "A notification-first life simulator mobile game. Players navigate custom career tracks, build relationships, manage resources, and face persistent narrative consequences shaped by real-time generative AI.",
+        category: "Mobile App",
+        version: "ACTIVE",
+        mainImage: "/assets/lifeos/Lifeos - 1.png",
+        images: [
+            "/assets/lifeos/Lifeos - 1.png",
+            "/assets/lifeos/Lifeos - 2.png",
+            "/assets/lifeos/Lifeos - 3.png",
+            "/assets/lifeos/Lifeos - 4.png",
+            "/assets/lifeos/Lifeos - 5.png"
+        ],
+        features: [
+            { icon: "psychology", text: "Generative AI Events", description: "Dynamic story progression powered by LLMs generating year-by-year life occurrences." },
+            { icon: "work", text: "Diverse Career Tracks", description: "Climb the ranks in specialized careers like Startup Founder, Crime Boss, or Politician." },
+            { icon: "send", text: "Notification Simulation", description: "Engage in game choices modeled entirely as immersive system notifications." },
+            { icon: "revenuecat", text: "Subscription Gating", description: "Entitlements managed in real-time with RevenueCat integration." }
+        ],
+        tech: ["Flutter", "Firebase", "Grok AI", "RevenueCat", "Node.js"],
+        layout: "reverse",
+        color: "#064e3b"
+    },
+    {
+        id: 5,
+        title: "MusicAI",
+        description: "An AI-powered music generation app. Leverages Google Lyria models to generate high-quality audio tracks from prompts, dynamically generates album covers, and builds MP4 files for distribution.",
+        category: "Mobile App",
+        version: "ACTIVE",
+        mainImage: "/assets/musicai/Musicai - 1.png",
+        images: [
+            "/assets/musicai/Musicai - 1.png",
+            "/assets/musicai/Musicai - 2.png",
+            "/assets/musicai/Musicai - 3.png",
+            "/assets/musicai/Musicai - 4.png",
+            "/assets/musicai/Musicai - 5.png",
+            "/assets/musicai/Musicai - 6.png",
+            "/assets/musicai/Musicai - 7.png"
+        ],
+        features: [
+            { icon: "auto_fix_high", text: "Google Lyria Synthesis", description: "Generates 30s clips or full-length tracks using specialized Lyria audio models." },
+            { icon: "palette", text: "Gemini Cover Generation", description: "Automatically crafts matching visual album art using Gemini Image generation." },
+            { icon: "cloud_done", text: "Serverless Audio Pipeline", description: "Deducts user credits and processes jobs asynchronously via Cloud Functions and FFmpeg." },
+            { icon: "visibility", text: "Custom Audio Player", description: "Features in-app playback with support for audio background services." }
+        ],
+        tech: ["Flutter", "Firebase", "Vertex AI", "Lyria AI", "FFmpeg"],
+        layout: "normal",
+        color: "#3b0764"
     }
 ];
 
@@ -164,24 +214,35 @@ export default function Projects() {
                         <div className="grid grid-cols-1 lg:grid-cols-2 h-full relative z-20">
                             {/* Image Section */}
                             <div
-                                className={`relative h-64 sm:h-[400px] lg:h-auto p-4 sm:p-10 md:p-14 flex items-center justify-center overflow-hidden shadow-[inset_-10px_0_20px_rgba(0,0,0,0.1)] lg:shadow-[inset_-10px_0_20px_rgba(0,0,0,0.1)] ${project.layout === 'reverse' ? 'order-1 lg:order-2 shadow-[inset_10px_0_20px_rgba(0,0,0,0.1)]' : ''}`}
+                                className={`relative h-[350px] sm:h-[500px] lg:h-auto flex items-center justify-center overflow-hidden rounded-t-[2.4rem] ${project.layout === 'reverse' ? 'order-1 lg:order-2 lg:rounded-r-[2.4rem] lg:rounded-tl-none' : 'lg:rounded-l-[2.4rem] lg:rounded-tr-none'} shadow-[inset_0_35px_80px_rgba(0,0,0,0.65),_inset_0_-15px_30px_rgba(255,255,255,0.05)]`}
                                 style={{ backgroundColor: project.color }}
                             >
-                                <div className="absolute inset-0 laser-grid opacity-10"></div>
-                                <div className="w-full h-full flex items-center justify-center relative">
-                                    <Image
-                                        alt={`${project.title} interface`}
-                                        className="relative z-10 rounded-[1.5rem] sm:rounded-[2rem] shadow-2xl object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-transform duration-500 group-hover/card:scale-[1.02]"
-                                        src={project.mainImage}
-                                        fill
-                                        sizes="(min-width: 1024px) 35vw, (min-width: 640px) 60vw, 90vw"
-                                    />
-                                    <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none z-20"></div>
+                                {/* Concave Gradient Shading inside the case */}
+                                <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-white/5 opacity-60 pointer-events-none z-10"></div>
+                                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(0,0,0,0.35)_0%,transparent_70%)] opacity-85 pointer-events-none z-10"></div>
+                                
+                                {/* Micro-detail: Inner Rim Highlight */}
+                                <div className={`absolute inset-[1px] border-b border-white/10 opacity-30 pointer-events-none rounded-t-[2.4rem] z-10 ${project.layout === 'reverse' ? 'lg:rounded-r-[2.4rem] lg:rounded-tl-none' : 'lg:rounded-l-[2.4rem] lg:rounded-tr-none'}`}></div>
+                                
+                                <div className="absolute inset-0 laser-grid opacity-5 mix-blend-overlay z-10 pointer-events-none"></div>
+
+                                {/* Phone Image (floating directly in the case) */}
+                                <div className="w-full h-full flex items-center justify-center relative p-6 sm:p-8 lg:p-10 xl:p-12 z-20">
+                                    <div className="relative w-[78%] h-[78%] sm:w-[74%] sm:h-[74%] lg:w-[82%] lg:h-[82%] flex items-center justify-center transition-transform duration-500 hover:scale-[1.05]">
+                                        <Image
+                                            alt={`${project.title} interface`}
+                                            className="relative z-30 rounded-[1.2rem] sm:rounded-[1.5rem] shadow-2xl object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.4)] transition-transform duration-500 group-hover/card:scale-[1.02]"
+                                            src={project.mainImage}
+                                            fill
+                                            sizes="(min-width: 1024px) 25vw, (min-width: 640px) 45vw, 65vw"
+                                        />
+                                    </div>
+                                    <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none z-40"></div>
                                 </div>
                             </div>
 
                             {/* Info Section */}
-                            <div className={`p-6 sm:p-10 lg:p-12 flex flex-col justify-between bg-[#FDFBF7] relative overflow-hidden ${project.layout === 'reverse' ? 'order-2 lg:order-1' : ''}`}>
+                            <div className={`p-6 sm:p-10 lg:p-12 flex flex-col justify-between bg-[#FDFBF7] relative overflow-hidden rounded-b-[2.4rem] ${project.layout === 'reverse' ? 'order-2 lg:order-1 lg:rounded-l-[2.4rem] lg:rounded-br-none' : 'lg:rounded-r-[2.4rem] lg:rounded-tl-none'}`}>
                                 {/* Background Detail */}
                                 <div className="absolute top-0 right-0 w-48 h-48 sm:w-64 sm:h-64 bg-primary/2 rounded-bl-full pointer-events-none"></div>
 

@@ -13,12 +13,13 @@ export default function Hero() {
         const heroContainer = containerRef.current;
         if (!heroContainer) return;
 
-        const heroInnerLayer = heroContainer.querySelector(".hero-frame-inner");
-        const heroImg = heroContainer.querySelector("img");
+        const portraitContainer = heroContainer.querySelector("#hero-portrait-container") || heroContainer;
+        const heroInnerLayer = portraitContainer.querySelector(".hero-frame-inner");
+        const heroImg = portraitContainer.querySelector("img");
         const isTouch = window.matchMedia("(hover: none)").matches;
 
         const handleMouseMove = (e: MouseEvent) => {
-            const rect = heroContainer.getBoundingClientRect();
+            const rect = portraitContainer.getBoundingClientRect();
             const x = (e.clientX - rect.left) / rect.width - 0.5;
             const y = (e.clientY - rect.top) / rect.height - 0.5;
 
@@ -61,51 +62,42 @@ export default function Hero() {
         };
 
         if (!isTouch) {
-            heroContainer.addEventListener("mousemove", handleMouseMove as EventListener);
-            heroContainer.addEventListener("mouseleave", handleMouseLeave);
+            portraitContainer.addEventListener("mousemove", handleMouseMove as EventListener);
+            portraitContainer.addEventListener("mouseleave", handleMouseLeave);
         }
 
         // Entrance animation
         const ctx = gsap.context(() => {
-            gsap.from(".hero-frame", {
-                x: -50,
-                opacity: 0,
-                duration: 1.5,
-                ease: "power4.out"
-            });
+            gsap.fromTo(".hero-frame", 
+                { x: -50, opacity: 0 },
+                { x: 0, opacity: 1, duration: 1, ease: "power4.out" }
+            );
 
-            gsap.from(".hero-text-animate", {
-                y: 30,
-                opacity: 0,
-                duration: 1.2,
-                stagger: 0.2,
-                ease: "power3.out",
-                delay: 0.3
-            });
+            gsap.fromTo(".hero-text-animate", 
+                { y: 30, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1, stagger: 0.15, ease: "power3.out", delay: 0.1 }
+            );
 
-            gsap.from(".hero-line-animate", {
-                width: 0,
-                duration: 1,
-                ease: "power2.inOut",
-                delay: 0.8
-            });
+            gsap.fromTo(".hero-line-animate", 
+                { width: 0 },
+                { width: "100%", duration: 0.8, ease: "power2.inOut", delay: 0.4 }
+            );
         }, heroContainer);
 
         return () => {
             if (!isTouch) {
-                heroContainer.removeEventListener("mousemove", handleMouseMove as EventListener);
-                heroContainer.removeEventListener("mouseleave", handleMouseLeave);
+                portraitContainer.removeEventListener("mousemove", handleMouseMove as EventListener);
+                portraitContainer.removeEventListener("mouseleave", handleMouseLeave);
             }
             ctx.revert();
         };
     }, []);
 
     return (
-        <section className="relative min-h-[85vh] flex flex-col justify-center px-4 py-12 md:px-20 lg:px-40">
+        <section ref={containerRef} className="relative min-h-[85vh] flex flex-col justify-center px-4 py-12 md:px-20 lg:px-40">
             <div className="layout-content-container flex flex-col max-w-[1300px] w-full mx-auto gap-10 lg:gap-12 lg:flex-row items-center">
                 <div
-                    ref={containerRef}
-                    className="relative w-full max-w-[280px] sm:max-w-[360px] lg:w-1/3 aspect-[4/5] sm:aspect-[3/4] mx-auto lg:mx-0 group transition-all duration-500 hero-frame"
+                    className="relative w-full max-w-[280px] sm:max-w-[360px] lg:w-1/3 aspect-[4/5] sm:aspect-[3/4] mx-auto lg:mx-0 group transition-all duration-500 hero-frame opacity-0"
                     id="hero-portrait-container"
                 >
                     <div className="hero-frame-inner h-full w-full relative">
@@ -125,14 +117,14 @@ export default function Hero() {
                 </div>
                 <div className="flex flex-col gap-6 lg:gap-8 lg:w-2/3 lg:pl-10 relative z-10 items-center lg:items-start text-center lg:text-left">
                     <div className="flex flex-col gap-2 items-center lg:items-start">
-                        <h1 className="hero-text-animate text-text-primary text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.85] tracking-tighter raised-text">
+                        <h1 className="hero-text-animate opacity-0 text-text-primary text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.85] tracking-tighter raised-text">
                             Firdan Umar
                         </h1>
-                        <h2 className="hero-text-animate text-primary font-serif italic font-light text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight drop-shadow-sm mt-1 sm:mt-2">
+                        <h2 className="hero-text-animate opacity-0 text-primary font-serif italic font-light text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight drop-shadow-sm mt-1 sm:mt-2">
                             Flutter Developer
                         </h2>
 
-                        <div className="hero-text-animate flex gap-6 mt-6">
+                        <div className="hero-text-animate opacity-0 flex gap-6 mt-6">
                             <MagneticElement
                                 className="tactile-btn h-14 w-14 flex items-center justify-center rounded-full text-text-secondary hover:text-primary transition-all"
                                 as="a"
@@ -162,7 +154,7 @@ export default function Hero() {
                         </div>
                     </div>
 
-                    <div className="hero-text-animate mt-12 flex flex-col items-center lg:items-start text-center lg:text-left gap-4 border-t-[3px] lg:border-t-0 lg:border-l-[3px] border-primary/20 pt-6 lg:pt-0 pl-0 lg:pl-8 max-w-lg group hover:border-primary transition-colors duration-500">
+                    <div className="hero-text-animate opacity-0 mt-12 flex flex-col items-center lg:items-start text-center lg:text-left gap-4 border-t-[3px] lg:border-t-0 lg:border-l-[3px] border-primary/20 pt-6 lg:pt-0 pl-0 lg:pl-8 max-w-lg group hover:border-primary transition-colors duration-500">
                         <p className="text-text-secondary text-lg md:text-xl font-medium leading-[1.6] font-sans italic opacity-85">
                             Creative Technologist <span className="text-text-primary font-bold not-italic">constructing high-performance digital artifacts</span> with precision, structural intent, and mobile-first soul.
                         </p>

@@ -1,8 +1,9 @@
 import dynamic from "next/dynamic";
 import CustomCursor from "./components/CustomCursor";
 
-const Header = dynamic(() => import("./components/Header"));
-const Hero = dynamic(() => import("./components/Hero"));
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+
 const TechStack = dynamic(() => import("./components/TechStack"));
 const Projects = dynamic(() => import("./components/Projects"));
 const Footer = dynamic(() => import("./components/Footer"));
