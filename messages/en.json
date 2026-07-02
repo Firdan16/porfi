@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "title": "Firdan Umar",
+    "description": "Flutter Developer & Creative Technologist designing high-performance digital artifacts."
+  },
+  "nav": {
+    "home": "Home",
+    "stack": "Stack",
+    "work": "Work",
+    "contact": "Contact"
+  },
+  "hero": {
+    "name": "Firdan Umar",
+    "role": "Flutter Developer",
+    "portraitAlt": "Portrait of Firdan Umar",
+    "bioPrefix": "Creative Technologist",
+    "bioHighlight": "constructing high-performance digital artifacts",
+    "bioSuffix": "with precision, structural intent, and mobile-first soul.",
+    "gmailTitle": "Gmail",
+    "githubTitle": "GitHub",
+    "linkedinTitle": "LinkedIn"
+  },
+  "techStack": {
+    "heading": "Technical",
+    "headingAccent": "Modules",
+    "subtitle": "Precision-engineered software components designed for scalability and performance.",
+    "defaultLabel": "Synchronized Core",
+    "cards": {
+      "flutter": { "subtitle": "Core Engine", "hover": "Flutter Framework" },
+      "firebase": { "subtitle": "Cloud Logic", "hover": "Firebase Core" },
+      "revenuecat": { "subtitle": "In-App Purchase", "hover": "RevenueCat Subscriptions" },
+      "nodejs": { "subtitle": "JS Runtime", "hover": "Node.js Runtime" },
+      "nestjs": { "subtitle": "Backend Arch", "hover": "NestJS Framework" },
+      "supabase": { "subtitle": "Postgres DB", "hover": "Supabase Backend" }
+    },
+    "workflow": {
+      "label": "Collaborative Logic",
+      "heading": "Workflow",
+      "headingAccent": "Ecosystem",
+      "tools": {
+        "figma": "Figma Design",
+        "github": "GitHub Versioning",
+        "postman": "Postman Testing",
+        "git": "Git SCM",
+        "notion": "Notion Workspace",
+        "gpt": "OpenAI GPT",
+        "gemini": "Google Gemini",
+        "docker": "Docker Container"
+      }
+    }
+  },
+  "projects": {
+    "heading": "Project Stack",
+    "interfaceAlt": "{title} interface",
+    "slideAlt": "{title} slide {index}",
+    "marketplace": "Marketplace",
+    "availableOn": "Available on",
+    "googlePlay": "Google Play",
+    "appStore": "App Store"
+  },
+  "footer": {
+    "headingLine1": "Connect with the",
+    "headingName": "Firdan Umar.",
+    "availability": "Currently available for select contract work and technical consultation. Let's build something robust.",
+    "downloadResume": "Download Resume",
+    "copyright": "© 2026 Firdan Umar.",
+    "resumePath": "/CV_Firdan Umar Arisyawal_New_Inggris.docx.pdf"
+  }
+}

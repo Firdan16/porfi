@@ -4,153 +4,18 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import dynamic from "next/dynamic";
+import { useTranslations } from "next-intl";
+import type { Project } from "@/content/projects/types";
 import AppIcon from "./AppIcon";
 
 const ProjectModal = dynamic(() => import("./ProjectModal"));
 
-interface Project {
-    id: number;
-    title: string;
-    description: string;
-    category: string;
-    version: string;
-    mainImage: string;
-    images: string[];
-    features: { icon: string; text: string; description?: string }[];
-    tech: string[];
-    layout: "normal" | "reverse";
-    color: string;
-    playStoreUrl?: string;
-    appStoreUrl?: string;
+interface ProjectsProps {
+    projects: Project[];
 }
 
-const PROJECTS_DATA: Project[] = [
-    {
-        id: 1,
-        title: "Suluk",
-        description: "A comprehensive Islamic lifestyle and social platform. Integrates prayer times, Qibla direction, and social features with a robust Supabase backend for real-time synchronization.",
-        category: "Mobile App",
-        version: "STABLE",
-        mainImage: "/assets/suluk/Suluk-main-1.png",
-        images: [
-            "/assets/suluk/Suluk-main-1.png",
-            "/assets/suluk/Suluk-main-2.png",
-            "/assets/suluk/Suluk-main-3.png",
-            "/assets/suluk/Suluk-main-4.png",
-            "/assets/suluk/Suluk-main-5.png"
-        ],
-        features: [
-            { icon: "explore", text: "Qibla Compass Engine", description: "High-precision directional logic using mobile sensors." },
-            { icon: "sync", text: "Real-time Sync", description: "Instant data sync across devices with low latency." },
-            { icon: "schedule", text: "Prayer Time Algorithm", description: "Accurate calculation based on geolocation coordinates." },
-            { icon: "groups", text: "Social Community", description: "Connect with others through shared religious goals." }
-        ],
-        tech: ["Flutter", "Bloc", "Google Maps API"],
-        layout: "normal",
-        color: "#0f172a",
-        playStoreUrl: "https://play.google.com/store/apps/details?id=id.bapli.idrisiyyah&hl=id",
-    },
-    {
-        id: 2,
-        title: "Photo AI",
-        description: "AI-powered image generation and editing suite. Leverages Google Gemini via Firebase Cloud Functions to transform text prompts and existing photos into high-quality AI art.",
-        category: "Mobile App",
-        version: "RELEASED",
-        mainImage: "/assets/photo-ai/Photo-ai-main-1.png",
-        images: [
-            "/assets/photo-ai/Photo-ai-main-1.png",
-            "/assets/photo-ai/Photo-ai-main-2.png",
-            "/assets/photo-ai/Photo-ai-main-3.png",
-            "/assets/photo-ai/Photo-ai-main-4.png",
-            "/assets/photo-ai/Photo-ai-main-5.png"
-        ],
-        features: [
-            { icon: "auto_fix_high", text: "Gemini Vision Integration", description: "Advanced prompt engineering for AI image analysis." },
-            { icon: "cloud_done", text: "Serverless Architecture", description: "Scalable backend logic using Firebase Cloud Functions." },
-            { icon: "brush", text: "AI Style Transfer", description: "Apply artistic styles to any photograph instantly." },
-            { icon: "security", text: "Secure Auth Layer", description: "Robust user authentication with Firebase Auth." }
-        ],
-        tech: ["Flutter", "Firebase", "Vertex AI", "Node.js"],
-        layout: "reverse",
-        color: "#1e1b4b",
-    },
-    {
-        id: 3,
-        title: "Text RPG",
-        description: "An interactive story engine where players shape their own adventure. Features AI-generated branching narratives, genre-specific visual styles, and hidden 'glimpses' to unlock.",
-        category: "Mobile App",
-        version: "ACTIVE",
-        mainImage: "/assets/text-rpg/textrpg-main-1.png",
-        images: [
-            "/assets/text-rpg/textrpg-main-1.png",
-            "/assets/text-rpg/textrpg-main-2.png",
-            "/assets/text-rpg/textrpg-main-3.png",
-            "/assets/text-rpg/textrpg-main-4.png",
-            "/assets/text-rpg/textrpg-main-5.png"
-        ],
-        features: [
-            { icon: "menu_book", text: "Branching Narratives", description: "Dynamic story paths generated based on player decisions." },
-            { icon: "visibility", text: "Hidden Glimpse System", description: "Special unlockable events hidden throughout the gameplay." },
-            { icon: "psychology", text: "AI Narrator Logic", description: "LLM-powered storytelling with consistent world-building." },
-            { icon: "palette", text: "Thematic UI Skins", description: "Visual styles that adapt to the current story genre." }
-        ],
-        tech: ["Flutter", "Vertex AI", "OpenAI", "Python", "Firebase"],
-        layout: "normal",
-        color: "#27272a"
-    },
-    {
-        id: 4,
-        title: "LifeOS",
-        description: "A notification-first life simulator mobile game. Players navigate custom career tracks, build relationships, manage resources, and face persistent narrative consequences shaped by real-time generative AI.",
-        category: "Mobile App",
-        version: "ACTIVE",
-        mainImage: "/assets/lifeos/Lifeos - 1.png",
-        images: [
-            "/assets/lifeos/Lifeos - 1.png",
-            "/assets/lifeos/Lifeos - 2.png",
-            "/assets/lifeos/Lifeos - 3.png",
-            "/assets/lifeos/Lifeos - 4.png",
-            "/assets/lifeos/Lifeos - 5.png"
-        ],
-        features: [
-            { icon: "psychology", text: "Generative AI Events", description: "Dynamic story progression powered by LLMs generating year-by-year life occurrences." },
-            { icon: "work", text: "Diverse Career Tracks", description: "Climb the ranks in specialized careers like Startup Founder, Crime Boss, or Politician." },
-            { icon: "send", text: "Notification Simulation", description: "Engage in game choices modeled entirely as immersive system notifications." },
-            { icon: "revenuecat", text: "Subscription Gating", description: "Entitlements managed in real-time with RevenueCat integration." }
-        ],
-        tech: ["Flutter", "Firebase", "Grok AI", "RevenueCat", "Node.js"],
-        layout: "reverse",
-        color: "#064e3b"
-    },
-    {
-        id: 5,
-        title: "MusicAI",
-        description: "An AI-powered music generation app. Leverages Google Lyria models to generate high-quality audio tracks from prompts, dynamically generates album covers, and builds MP4 files for distribution.",
-        category: "Mobile App",
-        version: "ACTIVE",
-        mainImage: "/assets/musicai/Musicai - 1.png",
-        images: [
-            "/assets/musicai/Musicai - 1.png",
-            "/assets/musicai/Musicai - 2.png",
-            "/assets/musicai/Musicai - 3.png",
-            "/assets/musicai/Musicai - 4.png",
-            "/assets/musicai/Musicai - 5.png",
-            "/assets/musicai/Musicai - 6.png",
-            "/assets/musicai/Musicai - 7.png"
-        ],
-        features: [
-            { icon: "auto_fix_high", text: "Google Lyria Synthesis", description: "Generates 30s clips or full-length tracks using specialized Lyria audio models." },
-            { icon: "palette", text: "Gemini Cover Generation", description: "Automatically crafts matching visual album art using Gemini Image generation." },
-            { icon: "cloud_done", text: "Serverless Audio Pipeline", description: "Deducts user credits and processes jobs asynchronously via Cloud Functions and FFmpeg." },
-            { icon: "visibility", text: "Custom Audio Player", description: "Features in-app playback with support for audio background services." }
-        ],
-        tech: ["Flutter", "Firebase", "Vertex AI", "Lyria AI", "FFmpeg"],
-        layout: "normal",
-        color: "#3b0764"
-    }
-];
-
-export default function Projects() {
+export default function Projects({ projects }: ProjectsProps) {
+    const t = useTranslations("projects");
     const containerRef = useRef<HTMLDivElement>(null);
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const [isModalClosing, setIsModalClosing] = useState(false);
@@ -194,14 +59,14 @@ export default function Projects() {
         >
             <div className="max-w-[1200px] mx-auto mb-10 lg:mb-16 relative z-10 flex flex-col items-center lg:items-start text-center lg:text-left">
                 <h2 className="text-text-primary text-2xl sm:text-3xl font-extrabold leading-tight px-0 lg:px-6 pb-4 border-b-4 lg:border-b-0 border-l-0 lg:border-l-8 border-primary flex flex-col lg:block items-center">
-                    Project Stack
+                    {t("heading")}
                 </h2>
             </div>
             <div
                 ref={containerRef}
                 className="max-w-[1000px] mx-auto flex flex-col gap-16 sm:gap-20 pb-20 relative z-10"
             >
-                {PROJECTS_DATA.map((project) => (
+                {projects.map((project) => (
                     <article
                         key={project.id}
                         className="project-slab sticky-card overflow-hidden group/card cursor-pointer"
@@ -230,7 +95,7 @@ export default function Projects() {
                                 <div className="w-full h-full flex items-center justify-center relative p-6 sm:p-8 lg:p-10 xl:p-12 z-20">
                                     <div className="relative w-[78%] h-[78%] sm:w-[74%] sm:h-[74%] lg:w-[82%] lg:h-[82%] flex items-center justify-center transition-transform duration-500 hover:scale-[1.05]">
                                         <Image
-                                            alt={`${project.title} interface`}
+                                            alt={t("interfaceAlt", { title: project.title })}
                                             className="relative z-30 rounded-[1.2rem] sm:rounded-[1.5rem] shadow-2xl object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.4)] transition-transform duration-500 group-hover/card:scale-[1.02]"
                                             src={project.mainImage}
                                             fill
@@ -263,9 +128,9 @@ export default function Projects() {
 
                                     {/* Tech Stack Chips */}
                                     <div className="flex flex-wrap gap-2 mb-6 sm:mb-8">
-                                        {project.tech.map((t, i) => (
+                                        {project.tech.map((tech, i) => (
                                             <span key={i} className="text-[9px] sm:text-[10px] font-mono font-bold px-2 py-1 rounded bg-[#E2E8F0] text-text-secondary opacity-70">
-                                                {t}
+                                                {tech}
                                             </span>
                                         ))}
                                     </div>
@@ -300,7 +165,7 @@ export default function Projects() {
 
                                         {(project.playStoreUrl || project.appStoreUrl) && (
                                             <div className="mt-4 pt-6 border-t border-black/5 flex flex-col items-start gap-4">
-                                                <span className="text-[10px] font-black text-text-secondary opacity-30 uppercase tracking-[0.2em] leading-none">Marketplace</span>
+                                                <span className="text-[10px] font-black text-text-secondary opacity-30 uppercase tracking-[0.2em] leading-none">{t("marketplace")}</span>
                                                 <div className="flex flex-wrap gap-3">
                                                     {project.playStoreUrl && (
                                                         <a
@@ -316,8 +181,8 @@ export default function Projects() {
                                                                 </svg>
                                                             </div>
                                                             <div className="flex flex-col leading-tight">
-                                                                <span className="text-[8px] opacity-50 font-bold uppercase tracking-widest group-hover/play:text-primary transition-colors">Available on</span>
-                                                                <span className="text-xs sm:text-sm font-black tracking-tight group-hover/play:text-primary transition-colors">Google Play</span>
+                                                                <span className="text-[8px] opacity-50 font-bold uppercase tracking-widest group-hover/play:text-primary transition-colors">{t("availableOn")}</span>
+                                                                <span className="text-xs sm:text-sm font-black tracking-tight group-hover/play:text-primary transition-colors">{t("googlePlay")}</span>
                                                             </div>
                                                         </a>
                                                     )}
@@ -335,8 +200,8 @@ export default function Projects() {
                                                                 </svg>
                                                             </div>
                                                             <div className="flex flex-col leading-tight">
-                                                                <span className="text-[8px] opacity-50 font-bold uppercase tracking-widest group-hover/apple:text-[#007AFF] transition-colors">Available on</span>
-                                                                <span className="text-xs sm:text-sm font-black tracking-tight group-hover/apple:text-[#007AFF] transition-colors">App Store</span>
+                                                                <span className="text-[8px] opacity-50 font-bold uppercase tracking-widest group-hover/apple:text-[#007AFF] transition-colors">{t("availableOn")}</span>
+                                                                <span className="text-xs sm:text-sm font-black tracking-tight group-hover/apple:text-[#007AFF] transition-colors">{t("appStore")}</span>
                                                             </div>
                                                         </a>
                                                     )}

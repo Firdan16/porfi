@@ -39,7 +39,7 @@ export default function CustomCursor() {
 
         const attachHoverEffects = () => {
             const interactiveElements = document.querySelectorAll(
-                "a, button, .tech-switch, .project-slab, input, textarea"
+                "a, button, .tech-switch, .project-slab, .locale-toggle, input, textarea"
             );
             interactiveElements.forEach((el) => {
                 el.addEventListener("mouseenter", handleMouseEnter);

@@ -2,19 +2,9 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import { useTranslations } from "next-intl";
+import type { Project } from "@/content/projects/types";
 import AppIcon from "./AppIcon";
-
-interface Project {
-    title: string;
-    description: string;
-    category: string;
-    version: string;
-    images: string[];
-    features: { icon: string; text: string; description?: string }[];
-    color: string;
-    playStoreUrl?: string;
-    appStoreUrl?: string;
-}
 
 interface ProjectModalProps {
     project: Project | null;
@@ -24,6 +14,7 @@ interface ProjectModalProps {
 }
 
 const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, isClosing, onClose }) => {
+    const t = useTranslations("projects");
     const overlayRef = useRef<HTMLDivElement>(null);
     const modalRef = useRef<HTMLDivElement>(null);
     const [activeIdx, setActiveIdx] = useState(0);
@@ -41,6 +32,13 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, isClosing,
     }, [project]);
 
     useEffect(() => {
+        return () => {
+            document.body.style.overflow = "";
+            document.documentElement.style.overflow = "";
+        };
+    }, []);
+
+    useEffect(() => {
         if (isOpen && !isClosing) {
             // Kill any existing animations first
             gsap.killTweensOf([overlayRef.current, modalRef.current]);
@@ -52,6 +50,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, isClosing,
             window.isModalOpen = true;
             window.lenis?.stop();
             document.body.style.overflow = "hidden";
+            document.documentElement.style.overflow = "hidden";
             
             gsap.to(overlayRef.current, {
                 autoAlpha: 1,
@@ -67,11 +66,6 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, isClosing,
             });
             window.dispatchEvent(new Event('modalToggle'));
         }
-        return () => {
-            if (window.isModalOpen) {
-                document.body.style.overflow = "";
-            }
-        };
     }, [isOpen, isClosing]);
 
     useEffect(() => {
@@ -88,6 +82,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, isClosing,
             onComplete: () => {
                 window.isModalOpen = false;
                 document.body.style.overflow = "";
+                document.documentElement.style.overflow = "";
                 window.dispatchEvent(new Event('modalToggle'));
                 window.lenis?.start();
             },
@@ -111,7 +106,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, isClosing,
         >
             <div
                 ref={modalRef}
-                className="relative w-full max-w-7xl h-[98vh] md:h-auto md:max-h-[85vh] bg-white rounded-t-[2.5rem] md:rounded-[3rem] shadow-[0_40px_100px_rgba(0,0,0,0.5)] overflow-y-auto lg:overflow-hidden flex flex-col mt-auto md:mt-0 custom-scrollbar"
+                className="relative w-full max-w-7xl h-[98vh] md:h-auto md:max-h-[85vh] bg-white rounded-t-[2.5rem] md:rounded-[3rem] shadow-[0_40px_100px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col mt-auto md:mt-0"
                 style={{ opacity: 0 }}
             >
                 {/* Pull Indicator for Mobile */}
@@ -127,7 +122,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, isClosing,
 
                 <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 overflow-visible lg:overflow-hidden">
                     {/* Left Section: Info */}
-                    <div className="lg:col-span-12 xl:col-span-5 px-6 md:px-12 xl:px-14 pt-10 md:pt-12 xl:pt-14 pb-10 md:pb-12 xl:pb-14 space-y-6 lg:overflow-y-auto xl:overflow-y-hidden custom-scrollbar bg-white relative z-20 flex flex-col justify-between items-center md:items-start text-center md:text-left">
+                    <div className={`lg:col-span-12 xl:col-span-5 px-6 md:px-12 xl:px-14 pt-10 md:pt-12 xl:pt-14 pb-10 md:pb-12 xl:pb-14 space-y-6 overflow-hidden bg-white relative z-20 flex flex-col justify-between items-center md:items-start text-center md:text-left ${isClosing ? "" : "lg:overflow-y-auto xl:overflow-y-hidden"}`}>
                         <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-primary/5 border border-primary/10 text-primary font-mono text-[9px] md:text-xs font-black uppercase tracking-widest w-fit">
                             <span className="relative flex h-1.5 w-1.5">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -136,11 +131,11 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, isClosing,
                             {project.category}
                         </div>
                         
-                        <h2 className="text-4xl md:text-6xl xl:text-8xl font-black text-text-primary tracking-tighter leading-[0.85] raised-text -mt-2">
+                        <h2 className="text-3xl md:text-5xl xl:text-6xl font-black text-text-primary tracking-tighter leading-[0.9] raised-text -mt-2">
                             {project.title}
                         </h2>
 
-                        <p className="text-sm md:text-lg xl:text-xl text-text-secondary/80 leading-relaxed font-serif italic max-w-2xl border-l-0 md:border-l-[3px] border-primary px-4 md:pl-6 opacity-90">
+                        <p className="text-xs md:text-base xl:text-lg text-text-secondary/80 leading-relaxed font-serif italic max-w-2xl border-l-0 md:border-l-[3px] border-primary px-4 md:pl-6 opacity-90">
                             &ldquo;{project.description}&rdquo;
                         </p>
 
@@ -197,7 +192,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, isClosing,
                                 >
                                     <img
                                         src={img}
-                                        alt={`${project.title} slide ${idx + 1}`}
+                                        alt={t("slideAlt", { title: project.title, index: idx + 1 })}
                                         className="max-w-[75%] max-h-[75%] xl:max-w-[70%] xl:max-h-[70%] object-contain filter drop-shadow-[0_50px_120px_rgba(0,0,0,0.7)] pointer-events-none transition-transform duration-500 hover:scale-105"
                                     />
                                 </div>
@@ -225,16 +220,6 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, isClosing,
             </div>
 
             <style jsx>{`
-                .custom-scrollbar::-webkit-scrollbar {
-                    width: 4px;
-                }
-                .custom-scrollbar::-webkit-scrollbar-track {
-                    background: transparent;
-                }
-                .custom-scrollbar::-webkit-scrollbar-thumb {
-                    background: rgba(0,0,0,0.1);
-                    border-radius: 10px;
-                }
                 @keyframes fadeIn {
                     from { opacity: 0; transform: translateY(20px); }
                     to { opacity: 1; transform: translateY(0); }

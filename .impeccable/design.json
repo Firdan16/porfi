@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-11T10:05:00Z",
+  "title": "Design System: Porfi",
+  "extensions": {
+    "colorMeta": {
+      "primary": { "role": "primary", "displayName": "Electric Blue", "canonical": "#3388FF" },
+      "neutral-bg": { "role": "neutral", "displayName": "Soft Industrial Gray", "canonical": "#F0F2F5" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display Sans", "purpose": "Bold headlines." },
+      "accent": { "displayName": "Accent Serif", "purpose": "Editorial emphasis." }
+    }
+  },
+  "components": [
+    {
+      "name": "Tactile Button Primary",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary action button with neumorphic glow.",
+      "html": "<button class=\"ds-btn-primary\">GET STARTED</button>",
+      "css": ".ds-btn-primary { background: #3388FF; color: white; padding: 12px 24px; border-radius: 2.5rem; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 5px 5px 10px rgba(51, 136, 255, 0.3), -5px -5px 10px rgba(255, 255, 255, 0.8); transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; } .ds-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 20px rgba(51, 136, 255, 0.5); }"
+    },
+    {
+      "name": "Project Slab",
+      "kind": "card",
+      "refersTo": "card-project",
+      "description": "Raised neumorphic card for project display.",
+      "html": "<div class=\"ds-project-slab\"><h3 class=\"ds-text\">Project Title</h3></div>",
+      "css": ".ds-project-slab { background: #F0F2F5; border-radius: 2.5rem; padding: 32px; box-shadow: 15px 15px 30px #d1d9e6, -15px -15px 30px #ffffff; border: 1px solid rgba(255, 255, 255, 0.6); } .ds-text { color: #1E293B; font-family: sans-serif; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Tactile Lab",
+    "overview": "Sistem desain neumorphic yang mensimulasikan permukaan fisik dan kontrol taktil. Fokus pada interaksi 'nyata' melalui bayangan ganda.",
+    "keyCharacteristics": ["Neumorphic depth", "Industrial tech palette", "Smooth motion"],
+    "rules": [
+      { "name": "The Shadow-as-State Rule", "body": "Bayangan luar = raised, bayangan dalam = inset.", "section": "elevation" }
+    ],
+    "dos": ["Do gunakan radius besar (2.5rem+)", "Do gunakan GSAP untuk transisi"],
+    "donts": ["Don't gunakan bayangan hitam pekat", "Don't gunakan desain flat"]
+  }
+}

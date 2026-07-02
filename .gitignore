@@ -4,8 +4,9 @@
 /node_modules
 /.pnp
 .pnp.*
+# .cursor
 .yarn/*
-.impeccable
+# .impeccable
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases

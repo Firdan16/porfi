@@ -1,11 +1,16 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { useLocale, useTranslations } from "next-intl";
 import MagneticElement from "./MagneticElement";
-import Link from "next/link";
 import AppIcon from "./AppIcon";
+import { Link } from "@/i18n/navigation";
+import LocaleToggle from "./LocaleToggle";
 
 export default function Header() {
+    const t = useTranslations("nav");
+    const locale = useLocale();
+
     const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
         e.preventDefault();
         const element = document.getElementById(id.replace("#", ""));
@@ -14,8 +19,7 @@ export default function Header() {
                 behavior: "smooth",
                 block: "start",
             });
-            // Update URL hash without jumping
-            window.history.pushState(null, "", id);
+            window.history.pushState(null, "", `/${locale}${id}`);
         }
     };
 
@@ -35,7 +39,6 @@ export default function Header() {
                 clearTimeout(scrollTimeout.current);
             }
 
-            // Always hide when scrolling starts or continues
             if (navRef.current) {
                 gsap.to(navRef.current, {
                     y: -100,
@@ -45,7 +48,6 @@ export default function Header() {
                 });
             }
 
-            // Show after scrolling stops
             scrollTimeout.current = setTimeout(() => {
                 if (window.isModalOpen) return;
 
@@ -57,21 +59,20 @@ export default function Header() {
                         ease: "power3.out",
                     });
                 }
-            }, 300); // Wait 300ms after scroll stops
+            }, 300);
         };
 
         const handleModalToggle = () => {
             if (window.isModalOpen) {
                 gsap.to(navRef.current, { y: -100, opacity: 0, duration: 0.5, ease: "expo.out" });
             } else {
-                // Only show if not scrolling? Or just show.
                 gsap.to(navRef.current, { y: 0, opacity: 1, duration: 0.5, ease: "expo.out" });
             }
         };
 
         window.addEventListener("scroll", handleScroll);
         window.addEventListener("modalToggle", handleModalToggle);
-        
+
         return () => {
             window.removeEventListener("scroll", handleScroll);
             window.removeEventListener("modalToggle", handleModalToggle);
@@ -85,7 +86,7 @@ export default function Header() {
             top: 0,
             behavior: "smooth",
         });
-        window.history.pushState(null, "", "/");
+        window.history.pushState(null, "", `/${locale}`);
     };
 
     return (
@@ -102,8 +103,7 @@ export default function Header() {
                             onClick={handleHomeClick}
                         >
                             <AppIcon name="home" className="h-4 w-4 md:h-5 md:w-5 opacity-50 group-hover:opacity-100 transition-opacity" />
-                            <span className="hidden xs:inline">Home</span>
-                            <span className="xs:hidden">Home</span>
+                            <span>{t("home")}</span>
                         </Link>
                     </MagneticElement>
 
@@ -116,7 +116,7 @@ export default function Header() {
                             onClick={(e) => handleSmoothScroll(e, "#stack")}
                         >
                             <AppIcon name="hub" className="h-4 w-4 md:h-5 md:w-5 opacity-50 group-hover:opacity-100 transition-opacity" />
-                            Stack
+                            {t("stack")}
                         </a>
                     </MagneticElement>
 
@@ -127,7 +127,7 @@ export default function Header() {
                             onClick={(e) => handleSmoothScroll(e, "#work")}
                         >
                             <AppIcon name="work" className="h-4 w-4 md:h-5 md:w-5 opacity-50 group-hover:opacity-100 transition-opacity" />
-                            Work
+                            {t("work")}
                         </a>
                     </MagneticElement>
 
@@ -138,8 +138,14 @@ export default function Header() {
                             onClick={(e) => handleSmoothScroll(e, "#contact")}
                         >
                             <AppIcon name="alternate_email" className="h-4 w-4 md:h-5 md:w-5 opacity-50 group-hover:opacity-100 transition-opacity" />
-                            Contact
+                            {t("contact")}
                         </a>
+                    </MagneticElement>
+
+                    <div className="w-[1px] h-6 bg-border-subtle/30 mx-0.5 sm:mx-1"></div>
+
+                    <MagneticElement as="div">
+                        <LocaleToggle />
                     </MagneticElement>
                 </nav>
             </div>

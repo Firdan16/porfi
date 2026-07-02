@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "title": "Firdan Umar",
+    "description": "Flutter Developer & Creative Technologist yang merancang artefak digital berperforma tinggi."
+  },
+  "nav": {
+    "home": "Beranda",
+    "stack": "Stack",
+    "work": "Karya",
+    "contact": "Kontak"
+  },
+  "hero": {
+    "name": "Firdan Umar",
+    "role": "Flutter Developer",
+    "portraitAlt": "Potret Firdan Umar",
+    "bioPrefix": "Creative Technologist",
+    "bioHighlight": "membangun artefak digital berperforma tinggi",
+    "bioSuffix": "dengan presisi, niat struktural, dan jiwa mobile-first.",
+    "gmailTitle": "Gmail",
+    "githubTitle": "GitHub",
+    "linkedinTitle": "LinkedIn"
+  },
+  "techStack": {
+    "heading": "Modul",
+    "headingAccent": "Teknis",
+    "subtitle": "Komponen perangkat lunak yang dirancang presisi untuk skalabilitas dan performa.",
+    "defaultLabel": "Inti Tersinkronisasi",
+    "cards": {
+      "flutter": { "subtitle": "Mesin Inti", "hover": "Flutter Framework" },
+      "firebase": { "subtitle": "Logika Cloud", "hover": "Firebase Core" },
+      "revenuecat": { "subtitle": "Pembelian In-App", "hover": "RevenueCat Subscriptions" },
+      "nodejs": { "subtitle": "Runtime JS", "hover": "Node.js Runtime" },
+      "nestjs": { "subtitle": "Arsitektur Backend", "hover": "NestJS Framework" },
+      "supabase": { "subtitle": "Database Postgres", "hover": "Supabase Backend" }
+    },
+    "workflow": {
+      "label": "Logika Kolaboratif",
+      "heading": "Alur Kerja",
+      "headingAccent": "Ekosistem",
+      "tools": {
+        "figma": "Desain Figma",
+        "github": "Versioning GitHub",
+        "postman": "Pengujian Postman",
+        "git": "Git SCM",
+        "notion": "Workspace Notion",
+        "gpt": "OpenAI GPT",
+        "gemini": "Google Gemini",
+        "docker": "Container Docker"
+      }
+    }
+  },
+  "projects": {
+    "heading": "Stack Proyek",
+    "interfaceAlt": "Antarmuka {title}",
+    "slideAlt": "Slide {title} {index}",
+    "marketplace": "Marketplace",
+    "availableOn": "Tersedia di",
+    "googlePlay": "Google Play",
+    "appStore": "App Store"
+  },
+  "footer": {
+    "headingLine1": "Terhubung dengan",
+    "headingName": "Firdan Umar.",
+    "availability": "Saat ini tersedia untuk pekerjaan kontrak terpilih dan konsultasi teknis. Mari bangun sesuatu yang tangguh.",
+    "downloadResume": "Unduh CV",
+    "copyright": "© 2026 Firdan Umar.",
+    "resumePath": "/CV_Firdan Umar Arisyawal_New_Inggris.docx.pdf"
+  }
+}

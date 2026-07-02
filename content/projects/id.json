@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "description": "Platform gaya hidup Islami dan sosial yang komprehensif. Mengintegrasikan waktu shalat, arah kiblat, dan fitur sosial dengan backend Supabase yang andal untuk sinkronisasi real-time.",
+    "category": "Aplikasi Mobile",
+    "version": "STABIL",
+    "features": [
+      { "icon": "explore", "text": "Mesin Kompas Kiblat", "description": "Logika arah presisi tinggi menggunakan sensor perangkat mobile." },
+      { "icon": "sync", "text": "Sinkronisasi Real-time", "description": "Sinkronisasi data instan antar perangkat dengan latensi rendah." },
+      { "icon": "schedule", "text": "Algoritma Waktu Shalat", "description": "Perhitungan akurat berdasarkan koordinat geolokasi." },
+      { "icon": "groups", "text": "Komunitas Sosial", "description": "Terhubung dengan orang lain melalui tujuan keagamaan bersama." }
+    ]
+  },
+  {
+    "id": 2,
+    "description": "Suite generasi dan pengeditan gambar berbasis AI. Memanfaatkan Google Gemini melalui Firebase Cloud Functions untuk mengubah prompt teks dan foto menjadi karya seni AI berkualitas tinggi.",
+    "category": "Aplikasi Mobile",
+    "version": "DIRILIS",
+    "features": [
+      { "icon": "auto_fix_high", "text": "Integrasi Gemini Vision", "description": "Prompt engineering canggih untuk analisis gambar AI." },
+      { "icon": "cloud_done", "text": "Arsitektur Serverless", "description": "Logika backend skalabel menggunakan Firebase Cloud Functions." },
+      { "icon": "brush", "text": "Transfer Gaya AI", "description": "Terapkan gaya artistik ke foto apa pun secara instan." },
+      { "icon": "security", "text": "Lapisan Autentikasi Aman", "description": "Autentikasi pengguna yang andal dengan Firebase Auth." }
+    ]
+  },
+  {
+    "id": 3,
+    "description": "Mesin cerita interaktif di mana pemain membentuk petualangan mereka sendiri. Menampilkan narasi bercabang yang dihasilkan AI, gaya visual spesifik genre, dan glimpse tersembunyi untuk dibuka.",
+    "category": "Aplikasi Mobile",
+    "version": "AKTIF",
+    "features": [
+      { "icon": "menu_book", "text": "Narasi Bercabang", "description": "Jalur cerita dinamis yang dihasilkan berdasarkan keputusan pemain." },
+      { "icon": "visibility", "text": "Sistem Glimpse Tersembunyi", "description": "Acara khusus yang dapat dibuka tersembunyi di seluruh gameplay." },
+      { "icon": "psychology", "text": "Logika Narator AI", "description": "Storytelling berbasis LLM dengan world-building yang konsisten." },
+      { "icon": "palette", "text": "Skin UI Tematik", "description": "Gaya visual yang menyesuaikan dengan genre cerita saat ini." }
+    ]
+  },
+  {
+    "id": 4,
+    "description": "Game simulasi kehidupan mobile yang berfokus pada notifikasi. Pemain menavigasi jalur karier kustom, membangun hubungan, mengelola sumber daya, dan menghadapi konsekuensi naratif yang dibentuk oleh AI generatif real-time.",
+    "category": "Aplikasi Mobile",
+    "version": "AKTIF",
+    "features": [
+      { "icon": "psychology", "text": "Acara AI Generatif", "description": "Progresi cerita dinamis yang didukung LLM menghasilkan peristiwa kehidupan tahun demi tahun." },
+      { "icon": "work", "text": "Jalur Karier Beragam", "description": "Naik peringkat dalam karier spesialisasi seperti Startup Founder, Crime Boss, atau Politician." },
+      { "icon": "send", "text": "Simulasi Notifikasi", "description": "Terlibat dalam pilihan game yang dimodelkan sepenuhnya sebagai notifikasi sistem imersif." },
+      { "icon": "revenuecat", "text": "Gating Langganan", "description": "Hak akses dikelola real-time dengan integrasi RevenueCat." }
+    ]
+  },
+  {
+    "id": 5,
+    "description": "Aplikasi generasi musik berbasis AI. Memanfaatkan model Google Lyria untuk menghasilkan trek audio berkualitas tinggi dari prompt, secara dinamis membuat cover album, dan membangun file MP4 untuk distribusi.",
+    "category": "Aplikasi Mobile",
+    "version": "AKTIF",
+    "features": [
+      { "icon": "auto_fix_high", "text": "Sintesis Google Lyria", "description": "Menghasilkan klip 30 detik atau trek penuh menggunakan model audio Lyria khusus." },
+      { "icon": "palette", "text": "Generasi Cover Gemini", "description": "Secara otomatis membuat cover album visual yang cocok menggunakan generasi gambar Gemini." },
+      { "icon": "cloud_done", "text": "Pipeline Audio Serverless", "description": "Mengurangi kredit pengguna dan memproses pekerjaan secara asinkron via Cloud Functions dan FFmpeg." },
+      { "icon": "visibility", "text": "Pemutar Audio Kustom", "description": "Pemutaran in-app dengan dukungan layanan audio background." }
+    ]
+  }
+]
