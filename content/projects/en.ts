@@ -28,6 +28,57 @@ export const projects: Project[] = [
     },
     {
         id: 2,
+        title: "Travelogi",
+        description: "A comprehensive Islamic service platform specializing in Hajj and Umrah travel booking. Seamlessly integrates pilgrimage packages and digital transactions with rich religious features, including an interactive Al-Quran, accurate prayer schedules, and a Qibla compass.",
+        category: "Mobile App",
+        version: "ACTIVE",
+        mainImage: "/assets/travelogi/Travelogi - 1.png",
+        images: [
+            "/assets/travelogi/Travelogi - 1.png",
+            "/assets/travelogi/Travelogi - 2.png",
+            "/assets/travelogi/Travelogi - 3.png",
+            "/assets/travelogi/Travelogi - 4.png",
+            "/assets/travelogi/Travelogi - 5.png"
+        ],
+        features: [
+            { icon: "menu_book", text: "Integrated Quran", description: "Digital Al-Quran with surah/verse navigation, tafsir, and Arabic fonts." },
+            { icon: "explore", text: "Islamic Services", description: "Location-based prayer time calculations and Qibla compass." },
+            { icon: "send", text: "Hajj & Umrah Packages", description: "Easy selection, booking, and real-time monitoring of sacred pilgrimage journeys." },
+            { icon: "revenuecat", text: "Financial Center", description: "Bill payments, digital wallet, and transfer services in a single app." }
+        ],
+        tech: ["Flutter", "Bloc", "Provider", "GetIt", "Firebase"],
+        layout: "reverse",
+        color: "#042f2e"
+    },
+    {
+        id: 3,
+        title: "Vellum",
+        description: "A Flutter mobile application that provides short visual summaries of non-fiction books. A user opens the Home catalog, finds a summary, progresses through ordered visual cards to learn key ideas, and saves progress to their profile.",
+        category: "Mobile App",
+        version: "ACTIVE",
+        mainImage: "/assets/vellum/Vellum - 1.png",
+        images: [
+            "/assets/vellum/Vellum - 1.png",
+            "/assets/vellum/Vellum - 2.png",
+            "/assets/vellum/Vellum - 3.png",
+            "/assets/vellum/Vellum - 4.png",
+            "/assets/vellum/Vellum - 5.png",
+            "/assets/vellum/Vellum - 6.png",
+            "/assets/vellum/Vellum - 7.png",
+            "/assets/vellum/Vellum - 8.png"
+        ],
+        features: [
+            { icon: "menu_book", text: "Visual Book Summaries", description: "Key ideas condensed into elegant, swipeable card presentations." },
+            { icon: "sync", text: "Progress Tracking", description: "Real-time reading and completion metrics synchronized with Firestore." },
+            { icon: "explore", text: "Curated Catalog", description: "Browse summaries by topics like Habits, Money, Psychology, and Productivity." },
+            { icon: "brush", text: "Vellum-Style Art", description: "Distinctive, minimal visual templates designed specifically for book summaries." }
+        ],
+        tech: ["Flutter", "Firebase", "Provider", "Google Fonts"],
+        layout: "normal",
+        color: "#451a03"
+    },
+    {
+        id: 4,
         title: "Photo AI",
         description: "AI-powered image generation and editing suite. Leverages Google Gemini via Firebase Cloud Functions to transform text prompts and existing photos into high-quality AI art.",
         category: "Mobile App",
@@ -51,7 +102,7 @@ export const projects: Project[] = [
         color: "#1e1b4b",
     },
     {
-        id: 3,
+        id: 5,
         title: "Text RPG",
         description: "An interactive story engine where players shape their own adventure. Features AI-generated branching narratives, genre-specific visual styles, and hidden 'glimpses' to unlock.",
         category: "Mobile App",
@@ -75,7 +126,7 @@ export const projects: Project[] = [
         color: "#27272a"
     },
     {
-        id: 4,
+        id: 6,
         title: "LifeOS",
         description: "A notification-first life simulator mobile game. Players navigate custom career tracks, build relationships, manage resources, and face persistent narrative consequences shaped by real-time generative AI.",
         category: "Mobile App",
@@ -99,7 +150,7 @@ export const projects: Project[] = [
         color: "#064e3b"
     },
     {
-        id: 5,
+        id: 7,
         title: "MusicAI",
         description: "An AI-powered music generation app. Leverages Google Lyria models to generate high-quality audio tracks from prompts, dynamically generates album covers, and builds MP4 files for distribution.",
         category: "Mobile App",

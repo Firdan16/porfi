@@ -13,6 +13,30 @@
   },
   {
     "id": 2,
+    "description": "Platform layanan Islami komprehensif yang dikhususkan untuk pemesanan perjalanan ibadah Haji dan Umrah. Mengintegrasikan paket perjalanan ibadah dan transaksi digital dengan fitur keagamaan yang kaya, termasuk Al-Quran interaktif, jadwal shalat, dan kompas kiblat.",
+    "category": "Aplikasi Mobile",
+    "version": "AKTIF",
+    "features": [
+      { "icon": "menu_book", "text": "Quran Terintegrasi", "description": "Al-Quran digital dengan navigasi surah/ayat, tafsir, dan font Arab." },
+      { "icon": "explore", "text": "Layanan Islami", "description": "Perhitungan waktu shalat berbasis lokasi dan kompas kiblat." },
+      { "icon": "send", "text": "Paket Haji & Umrah", "description": "Kemudahan pemilihan, pemesanan, dan pemantauan real-time perjalanan ibadah suci." },
+      { "icon": "revenuecat", "text": "Pusat Keuangan", "description": "Pembayaran tagihan, dompet digital, dan layanan transfer dalam satu aplikasi." }
+    ]
+  },
+  {
+    "id": 3,
+    "description": "Aplikasi mobile Flutter yang menyediakan ringkasan visual singkat untuk buku-buku non-fiksi. Pengguna membuka katalog Beranda, mencari ringkasan, membaca kartu visual berurutan untuk mempelajari ide-ide kunci, dan menyimpan kemajuan ke profil mereka.",
+    "category": "Aplikasi Mobile",
+    "version": "AKTIF",
+    "features": [
+      { "icon": "menu_book", "text": "Ringkasan Buku Visual", "description": "Ide-ide kunci dipadatkan menjadi presentasi kartu yang elegan dan dapat diusap." },
+      { "icon": "sync", "text": "Pelacakan Kemajuan", "description": "Metrik membaca dan penyelesaian real-time yang disinkronkan dengan Firestore." },
+      { "icon": "explore", "text": "Katalog Terkurasi", "description": "Jelajahi ringkasan berdasarkan topik seperti Kebiasaan, Keuangan, Psikologi, dan Produktivitas." },
+      { "icon": "brush", "text": "Seni Gaya Vellum", "description": "Templat visual minimalis yang khas, dirancang khusus untuk ringkasan buku." }
+    ]
+  },
+  {
+    "id": 4,
     "description": "Suite generasi dan pengeditan gambar berbasis AI. Memanfaatkan Google Gemini melalui Firebase Cloud Functions untuk mengubah prompt teks dan foto menjadi karya seni AI berkualitas tinggi.",
     "category": "Aplikasi Mobile",
     "version": "DIRILIS",
@@ -24,7 +48,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": 5,
     "description": "Mesin cerita interaktif di mana pemain membentuk petualangan mereka sendiri. Menampilkan narasi bercabang yang dihasilkan AI, gaya visual spesifik genre, dan glimpse tersembunyi untuk dibuka.",
     "category": "Aplikasi Mobile",
     "version": "AKTIF",
@@ -36,7 +60,7 @@
     ]
   },
   {
-    "id": 4,
+    "id": 6,
     "description": "Game simulasi kehidupan mobile yang berfokus pada notifikasi. Pemain menavigasi jalur karier kustom, membangun hubungan, mengelola sumber daya, dan menghadapi konsekuensi naratif yang dibentuk oleh AI generatif real-time.",
     "category": "Aplikasi Mobile",
     "version": "AKTIF",
@@ -48,7 +72,7 @@
     ]
   },
   {
-    "id": 5,
+    "id": 7,
     "description": "Aplikasi generasi musik berbasis AI. Memanfaatkan model Google Lyria untuk menghasilkan trek audio berkualitas tinggi dari prompt, secara dinamis membuat cover album, dan membangun file MP4 untuk distribusi.",
     "category": "Aplikasi Mobile",
     "version": "AKTIF",

@@ -26,12 +26,30 @@
     "subtitle": "Komponen perangkat lunak yang dirancang presisi untuk skalabilitas dan performa.",
     "defaultLabel": "Inti Tersinkronisasi",
     "cards": {
-      "flutter": { "subtitle": "Mesin Inti", "hover": "Flutter Framework" },
-      "firebase": { "subtitle": "Logika Cloud", "hover": "Firebase Core" },
-      "revenuecat": { "subtitle": "Pembelian In-App", "hover": "RevenueCat Subscriptions" },
-      "nodejs": { "subtitle": "Runtime JS", "hover": "Node.js Runtime" },
-      "nestjs": { "subtitle": "Arsitektur Backend", "hover": "NestJS Framework" },
-      "supabase": { "subtitle": "Database Postgres", "hover": "Supabase Backend" }
+      "flutter": {
+        "subtitle": "Mesin Inti",
+        "hover": "Flutter Framework"
+      },
+      "firebase": {
+        "subtitle": "Logika Cloud",
+        "hover": "Firebase Core"
+      },
+      "revenuecat": {
+        "subtitle": "Pembelian In-App",
+        "hover": "RevenueCat Subscriptions"
+      },
+      "nodejs": {
+        "subtitle": "Runtime JS",
+        "hover": "Node.js Runtime"
+      },
+      "nestjs": {
+        "subtitle": "Arsitektur Backend",
+        "hover": "NestJS Framework"
+      },
+      "supabase": {
+        "subtitle": "Database Postgres",
+        "hover": "Supabase Backend"
+      }
     },
     "workflow": {
       "label": "Logika Kolaboratif",
@@ -45,7 +63,8 @@
         "notion": "Workspace Notion",
         "gpt": "OpenAI GPT",
         "gemini": "Google Gemini",
-        "docker": "Container Docker"
+        "docker": "Container Docker",
+        "n8n": "Otomasi n8n"
       }
     }
   },

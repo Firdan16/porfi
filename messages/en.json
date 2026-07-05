@@ -45,7 +45,8 @@
         "notion": "Notion Workspace",
         "gpt": "OpenAI GPT",
         "gemini": "Google Gemini",
-        "docker": "Docker Container"
+        "docker": "Docker Container",
+        "n8n": "n8n Automation"
       }
     }
   },

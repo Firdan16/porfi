@@ -128,9 +128,9 @@ export default function TechStack() {
                     >
                         <div className="flex flex-col gap-4 relative z-10 pointer-events-none w-full">
                             <div className="h-16 w-16 md:h-20 md:w-20 flex items-center justify-center p-1 md:p-2">
-                                <img 
-                                    alt="RevenueCat" 
-                                    className="w-full h-full object-contain drop-shadow-xl" 
+                                <img
+                                    alt="RevenueCat"
+                                    className="w-full h-full object-contain drop-shadow-xl"
                                     src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/revenuecat.svg"
                                     style={{ filter: "invert(22%) sepia(100%) saturate(1538%) hue-rotate(357deg)" }}
                                 />
@@ -344,6 +344,25 @@ export default function TechStack() {
                                 </div>
                                 <div className="flex flex-col">
                                     <h5 className="font-bold text-base sm:text-lg text-text-primary font-display tracking-tight">Docker</h5>
+                                </div>
+                            </MagneticElement>
+
+                            {/* n8n */}
+                            <MagneticElement
+                                className="tech-switch p-4 sm:px-8 sm:py-5 flex items-center gap-3 md:gap-4 md:cursor-pointer group md:hover:bg-white/10"
+                                as="div"
+                                data-tech-name={t("workflow.tools.n8n")}
+                            >
+                                <div className="h-10 w-10 flex-shrink-0 flex items-center justify-center">
+                                    <img
+                                        alt="n8n"
+                                        className="w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity"
+                                        src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/n8n.svg"
+                                        style={{ filter: "brightness(0) saturate(100%) invert(47%) sepia(55%) saturate(1637%) hue-rotate(313deg) brightness(97%) contrast(97%)" }}
+                                    />
+                                </div>
+                                <div className="flex flex-col">
+                                    <h5 className="font-bold text-base sm:text-lg text-text-primary font-display tracking-tight">n8n</h5>
                                 </div>
                             </MagneticElement>
                         </div>
