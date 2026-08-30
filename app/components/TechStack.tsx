@@ -305,20 +305,6 @@ export default function TechStack() {
                                 </div>
                             </MagneticElement>
 
-                            {/* GPT */}
-                            <MagneticElement
-                                className="tech-switch p-4 sm:px-8 sm:py-5 flex items-center gap-3 md:gap-4 md:cursor-pointer group md:hover:bg-white/10"
-                                as="div"
-                                data-tech-name={t("workflow.tools.gpt")}
-                            >
-                                <div className="h-10 w-10 flex-shrink-0 flex items-center justify-center">
-                                    <TechLogo alt="GPT" className="w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity" src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" width={40} height={40} />
-                                </div>
-                                <div className="flex flex-col">
-                                    <h5 className="font-bold text-base sm:text-lg text-text-primary font-display tracking-tight">GPT</h5>
-                                </div>
-                            </MagneticElement>
-
                             {/* Gemini */}
                             <MagneticElement
                                 className="tech-switch p-4 sm:px-8 sm:py-5 flex items-center gap-3 md:gap-4 md:cursor-pointer group md:hover:bg-white/10"
@@ -363,6 +349,62 @@ export default function TechStack() {
                                 </div>
                                 <div className="flex flex-col">
                                     <h5 className="font-bold text-base sm:text-lg text-text-primary font-display tracking-tight">n8n</h5>
+                                </div>
+                            </MagneticElement>
+
+                            {/* Claude Code */}
+                            <MagneticElement
+                                className="tech-switch p-4 sm:px-8 sm:py-5 flex items-center gap-3 md:gap-4 md:cursor-pointer group md:hover:bg-white/10"
+                                as="div"
+                                data-tech-name={t("workflow.tools.claudecode")}
+                            >
+                                <div className="h-10 w-10 flex-shrink-0 flex items-center justify-center">
+                                    <TechLogo alt="Claude Code" className="w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity" src="https://unpkg.com/@lobehub/icons-static-svg@latest/icons/claudecode-color.svg" width={40} height={40} />
+                                </div>
+                                <div className="flex flex-col">
+                                    <h5 className="font-bold text-base sm:text-lg text-text-primary font-display tracking-tight">Claude Code</h5>
+                                </div>
+                            </MagneticElement>
+
+                            {/* Cursor */}
+                            <MagneticElement
+                                className="tech-switch p-4 sm:px-8 sm:py-5 flex items-center gap-3 md:gap-4 md:cursor-pointer group md:hover:bg-white/10"
+                                as="div"
+                                data-tech-name={t("workflow.tools.cursor")}
+                            >
+                                <div className="h-10 w-10 flex-shrink-0 flex items-center justify-center">
+                                    <TechLogo alt="Cursor" className="w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity" src="https://unpkg.com/@lobehub/icons-static-svg@latest/icons/cursor.svg" width={40} height={40} />
+                                </div>
+                                <div className="flex flex-col">
+                                    <h5 className="font-bold text-base sm:text-lg text-text-primary font-display tracking-tight">Cursor</h5>
+                                </div>
+                            </MagneticElement>
+
+                            {/* Codex */}
+                            <MagneticElement
+                                className="tech-switch p-4 sm:px-8 sm:py-5 flex items-center gap-3 md:gap-4 md:cursor-pointer group md:hover:bg-white/10"
+                                as="div"
+                                data-tech-name={t("workflow.tools.codex")}
+                            >
+                                <div className="h-10 w-10 flex-shrink-0 flex items-center justify-center">
+                                    <TechLogo alt="Codex" className="w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity" src="https://unpkg.com/@lobehub/icons-static-svg@latest/icons/codex-color.svg" width={40} height={40} />
+                                </div>
+                                <div className="flex flex-col">
+                                    <h5 className="font-bold text-base sm:text-lg text-text-primary font-display tracking-tight">Codex</h5>
+                                </div>
+                            </MagneticElement>
+
+                            {/* Hermes */}
+                            <MagneticElement
+                                className="tech-switch p-4 sm:px-8 sm:py-5 flex items-center gap-3 md:gap-4 md:cursor-pointer group md:hover:bg-white/10"
+                                as="div"
+                                data-tech-name={t("workflow.tools.hermes")}
+                            >
+                                <div className="h-10 w-10 flex-shrink-0 flex items-center justify-center">
+                                    <TechLogo alt="Hermes" className="w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity" src="https://unpkg.com/@lobehub/icons-static-svg@latest/icons/hermesagent.svg" width={40} height={40} />
+                                </div>
+                                <div className="flex flex-col">
+                                    <h5 className="font-bold text-base sm:text-lg text-text-primary font-display tracking-tight">Hermes</h5>
                                 </div>
                             </MagneticElement>
                         </div>

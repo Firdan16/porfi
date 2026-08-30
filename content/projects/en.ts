@@ -25,6 +25,7 @@ export const projects: Project[] = [
         layout: "normal",
         color: "#0f172a",
         playStoreUrl: "https://play.google.com/store/apps/details?id=id.bapli.idrisiyyah&hl=id",
+        appStoreUrl: "https://apps.apple.com/app/suluk/id6751481427"
     },
     {
         id: 2,
@@ -52,7 +53,7 @@ export const projects: Project[] = [
     },
     {
         id: 3,
-        title: "Vellum",
+        title: "Bookglance",
         description: "A Flutter mobile application that provides short visual summaries of non-fiction books. A user opens the Home catalog, finds a summary, progresses through ordered visual cards to learn key ideas, and saves progress to their profile.",
         category: "Mobile App",
         version: "ACTIVE",
@@ -71,7 +72,7 @@ export const projects: Project[] = [
             { icon: "menu_book", text: "Visual Book Summaries", description: "Key ideas condensed into elegant, swipeable card presentations." },
             { icon: "sync", text: "Progress Tracking", description: "Real-time reading and completion metrics synchronized with Firestore." },
             { icon: "explore", text: "Curated Catalog", description: "Browse summaries by topics like Habits, Money, Psychology, and Productivity." },
-            { icon: "brush", text: "Vellum-Style Art", description: "Distinctive, minimal visual templates designed specifically for book summaries." }
+            { icon: "brush", text: "Bookglance-Style Art", description: "Distinctive, minimal visual templates designed specifically for book summaries." }
         ],
         tech: ["Flutter", "Firebase", "Provider", "Google Fonts"],
         layout: "normal",

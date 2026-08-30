@@ -26,12 +26,30 @@
     "subtitle": "Precision-engineered software components designed for scalability and performance.",
     "defaultLabel": "Synchronized Core",
     "cards": {
-      "flutter": { "subtitle": "Core Engine", "hover": "Flutter Framework" },
-      "firebase": { "subtitle": "Cloud Logic", "hover": "Firebase Core" },
-      "revenuecat": { "subtitle": "In-App Purchase", "hover": "RevenueCat Subscriptions" },
-      "nodejs": { "subtitle": "JS Runtime", "hover": "Node.js Runtime" },
-      "nestjs": { "subtitle": "Backend Arch", "hover": "NestJS Framework" },
-      "supabase": { "subtitle": "Postgres DB", "hover": "Supabase Backend" }
+      "flutter": {
+        "subtitle": "Core Engine",
+        "hover": "Flutter Framework"
+      },
+      "firebase": {
+        "subtitle": "Cloud Logic",
+        "hover": "Firebase Core"
+      },
+      "revenuecat": {
+        "subtitle": "In-App Purchase",
+        "hover": "RevenueCat Subscriptions"
+      },
+      "nodejs": {
+        "subtitle": "JS Runtime",
+        "hover": "Node.js Runtime"
+      },
+      "nestjs": {
+        "subtitle": "Backend Arch",
+        "hover": "NestJS Framework"
+      },
+      "supabase": {
+        "subtitle": "Postgres DB",
+        "hover": "Supabase Backend"
+      }
     },
     "workflow": {
       "label": "Collaborative Logic",
@@ -46,7 +64,11 @@
         "gpt": "OpenAI GPT",
         "gemini": "Google Gemini",
         "docker": "Docker Container",
-        "n8n": "n8n Automation"
+        "n8n": "n8n Automation",
+        "claudecode": "Claude Code",
+        "cursor": "Cursor",
+        "codex": "Codex",
+        "hermes": "Hermes"
       }
     }
   },
@@ -65,6 +87,6 @@
     "availability": "Currently available for select contract work and technical consultation. Let's build something robust.",
     "downloadResume": "Download Resume",
     "copyright": "© 2026 Firdan Umar.",
-    "resumePath": "/CV_Firdan Umar Arisyawal_New_Inggris.docx.pdf"
+    "resumePath": "/CV_Firdan Umar Arisyawal_New_Inggris.pdf"
   }
 }

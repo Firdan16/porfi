@@ -64,7 +64,11 @@
         "gpt": "OpenAI GPT",
         "gemini": "Google Gemini",
         "docker": "Container Docker",
-        "n8n": "Otomasi n8n"
+        "n8n": "Otomasi n8n",
+        "claudecode": "Claude Code",
+        "cursor": "Cursor",
+        "codex": "Codex",
+        "hermes": "Hermes"
       }
     }
   },
@@ -83,6 +87,6 @@
     "availability": "Saat ini tersedia untuk pekerjaan kontrak terpilih dan konsultasi teknis. Mari bangun sesuatu yang tangguh.",
     "downloadResume": "Unduh CV",
     "copyright": "© 2026 Firdan Umar.",
-    "resumePath": "/CV_Firdan Umar Arisyawal_New_Inggris.docx.pdf"
+    "resumePath": "/CV_Firdan Umar Arisyawal_New_Inggris.pdf"
   }
 }

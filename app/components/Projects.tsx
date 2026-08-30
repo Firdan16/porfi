@@ -85,10 +85,10 @@ export default function Projects({ projects }: ProjectsProps) {
                                 {/* Concave Gradient Shading inside the case */}
                                 <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-white/5 opacity-60 pointer-events-none z-10"></div>
                                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(0,0,0,0.35)_0%,transparent_70%)] opacity-85 pointer-events-none z-10"></div>
-                                
+
                                 {/* Micro-detail: Inner Rim Highlight */}
                                 <div className={`absolute inset-[1px] border-b border-white/10 opacity-30 pointer-events-none rounded-t-[2.4rem] z-10 ${project.layout === 'reverse' ? 'lg:rounded-r-[2.4rem] lg:rounded-tl-none' : 'lg:rounded-l-[2.4rem] lg:rounded-tr-none'}`}></div>
-                                
+
                                 <div className="absolute inset-0 laser-grid opacity-5 mix-blend-overlay z-10 pointer-events-none"></div>
 
                                 {/* Phone Image (floating directly in the case) */}

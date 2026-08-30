@@ -5,10 +5,26 @@
     "category": "Aplikasi Mobile",
     "version": "STABIL",
     "features": [
-      { "icon": "explore", "text": "Mesin Kompas Kiblat", "description": "Logika arah presisi tinggi menggunakan sensor perangkat mobile." },
-      { "icon": "sync", "text": "Sinkronisasi Real-time", "description": "Sinkronisasi data instan antar perangkat dengan latensi rendah." },
-      { "icon": "schedule", "text": "Algoritma Waktu Shalat", "description": "Perhitungan akurat berdasarkan koordinat geolokasi." },
-      { "icon": "groups", "text": "Komunitas Sosial", "description": "Terhubung dengan orang lain melalui tujuan keagamaan bersama." }
+      {
+        "icon": "explore",
+        "text": "Mesin Kompas Kiblat",
+        "description": "Logika arah presisi tinggi menggunakan sensor perangkat mobile."
+      },
+      {
+        "icon": "sync",
+        "text": "Sinkronisasi Real-time",
+        "description": "Sinkronisasi data instan antar perangkat dengan latensi rendah."
+      },
+      {
+        "icon": "schedule",
+        "text": "Algoritma Waktu Shalat",
+        "description": "Perhitungan akurat berdasarkan koordinat geolokasi."
+      },
+      {
+        "icon": "groups",
+        "text": "Komunitas Sosial",
+        "description": "Terhubung dengan orang lain melalui tujuan keagamaan bersama."
+      }
     ]
   },
   {
@@ -17,10 +33,26 @@
     "category": "Aplikasi Mobile",
     "version": "AKTIF",
     "features": [
-      { "icon": "menu_book", "text": "Quran Terintegrasi", "description": "Al-Quran digital dengan navigasi surah/ayat, tafsir, dan font Arab." },
-      { "icon": "explore", "text": "Layanan Islami", "description": "Perhitungan waktu shalat berbasis lokasi dan kompas kiblat." },
-      { "icon": "send", "text": "Paket Haji & Umrah", "description": "Kemudahan pemilihan, pemesanan, dan pemantauan real-time perjalanan ibadah suci." },
-      { "icon": "revenuecat", "text": "Pusat Keuangan", "description": "Pembayaran tagihan, dompet digital, dan layanan transfer dalam satu aplikasi." }
+      {
+        "icon": "menu_book",
+        "text": "Quran Terintegrasi",
+        "description": "Al-Quran digital dengan navigasi surah/ayat, tafsir, dan font Arab."
+      },
+      {
+        "icon": "explore",
+        "text": "Layanan Islami",
+        "description": "Perhitungan waktu shalat berbasis lokasi dan kompas kiblat."
+      },
+      {
+        "icon": "send",
+        "text": "Paket Haji & Umrah",
+        "description": "Kemudahan pemilihan, pemesanan, dan pemantauan real-time perjalanan ibadah suci."
+      },
+      {
+        "icon": "revenuecat",
+        "text": "Pusat Keuangan",
+        "description": "Pembayaran tagihan, dompet digital, dan layanan transfer dalam satu aplikasi."
+      }
     ]
   },
   {
@@ -29,10 +61,26 @@
     "category": "Aplikasi Mobile",
     "version": "AKTIF",
     "features": [
-      { "icon": "menu_book", "text": "Ringkasan Buku Visual", "description": "Ide-ide kunci dipadatkan menjadi presentasi kartu yang elegan dan dapat diusap." },
-      { "icon": "sync", "text": "Pelacakan Kemajuan", "description": "Metrik membaca dan penyelesaian real-time yang disinkronkan dengan Firestore." },
-      { "icon": "explore", "text": "Katalog Terkurasi", "description": "Jelajahi ringkasan berdasarkan topik seperti Kebiasaan, Keuangan, Psikologi, dan Produktivitas." },
-      { "icon": "brush", "text": "Seni Gaya Vellum", "description": "Templat visual minimalis yang khas, dirancang khusus untuk ringkasan buku." }
+      {
+        "icon": "menu_book",
+        "text": "Ringkasan Buku Visual",
+        "description": "Ide-ide kunci dipadatkan menjadi presentasi kartu yang elegan dan dapat diusap."
+      },
+      {
+        "icon": "sync",
+        "text": "Pelacakan Kemajuan",
+        "description": "Metrik membaca dan penyelesaian real-time yang disinkronkan dengan Firestore."
+      },
+      {
+        "icon": "explore",
+        "text": "Katalog Terkurasi",
+        "description": "Jelajahi ringkasan berdasarkan topik seperti Kebiasaan, Keuangan, Psikologi, dan Produktivitas."
+      },
+      {
+        "icon": "brush",
+        "text": "Seni Gaya Bookglance",
+        "description": "Templat visual minimalis yang khas, dirancang khusus untuk ringkasan buku."
+      }
     ]
   },
   {
@@ -41,10 +89,26 @@
     "category": "Aplikasi Mobile",
     "version": "DIRILIS",
     "features": [
-      { "icon": "auto_fix_high", "text": "Integrasi Gemini Vision", "description": "Prompt engineering canggih untuk analisis gambar AI." },
-      { "icon": "cloud_done", "text": "Arsitektur Serverless", "description": "Logika backend skalabel menggunakan Firebase Cloud Functions." },
-      { "icon": "brush", "text": "Transfer Gaya AI", "description": "Terapkan gaya artistik ke foto apa pun secara instan." },
-      { "icon": "security", "text": "Lapisan Autentikasi Aman", "description": "Autentikasi pengguna yang andal dengan Firebase Auth." }
+      {
+        "icon": "auto_fix_high",
+        "text": "Integrasi Gemini Vision",
+        "description": "Prompt engineering canggih untuk analisis gambar AI."
+      },
+      {
+        "icon": "cloud_done",
+        "text": "Arsitektur Serverless",
+        "description": "Logika backend skalabel menggunakan Firebase Cloud Functions."
+      },
+      {
+        "icon": "brush",
+        "text": "Transfer Gaya AI",
+        "description": "Terapkan gaya artistik ke foto apa pun secara instan."
+      },
+      {
+        "icon": "security",
+        "text": "Lapisan Autentikasi Aman",
+        "description": "Autentikasi pengguna yang andal dengan Firebase Auth."
+      }
     ]
   },
   {
@@ -53,10 +117,26 @@
     "category": "Aplikasi Mobile",
     "version": "AKTIF",
     "features": [
-      { "icon": "menu_book", "text": "Narasi Bercabang", "description": "Jalur cerita dinamis yang dihasilkan berdasarkan keputusan pemain." },
-      { "icon": "visibility", "text": "Sistem Glimpse Tersembunyi", "description": "Acara khusus yang dapat dibuka tersembunyi di seluruh gameplay." },
-      { "icon": "psychology", "text": "Logika Narator AI", "description": "Storytelling berbasis LLM dengan world-building yang konsisten." },
-      { "icon": "palette", "text": "Skin UI Tematik", "description": "Gaya visual yang menyesuaikan dengan genre cerita saat ini." }
+      {
+        "icon": "menu_book",
+        "text": "Narasi Bercabang",
+        "description": "Jalur cerita dinamis yang dihasilkan berdasarkan keputusan pemain."
+      },
+      {
+        "icon": "visibility",
+        "text": "Sistem Glimpse Tersembunyi",
+        "description": "Acara khusus yang dapat dibuka tersembunyi di seluruh gameplay."
+      },
+      {
+        "icon": "psychology",
+        "text": "Logika Narator AI",
+        "description": "Storytelling berbasis LLM dengan world-building yang konsisten."
+      },
+      {
+        "icon": "palette",
+        "text": "Skin UI Tematik",
+        "description": "Gaya visual yang menyesuaikan dengan genre cerita saat ini."
+      }
     ]
   },
   {
@@ -65,10 +145,26 @@
     "category": "Aplikasi Mobile",
     "version": "AKTIF",
     "features": [
-      { "icon": "psychology", "text": "Acara AI Generatif", "description": "Progresi cerita dinamis yang didukung LLM menghasilkan peristiwa kehidupan tahun demi tahun." },
-      { "icon": "work", "text": "Jalur Karier Beragam", "description": "Naik peringkat dalam karier spesialisasi seperti Startup Founder, Crime Boss, atau Politician." },
-      { "icon": "send", "text": "Simulasi Notifikasi", "description": "Terlibat dalam pilihan game yang dimodelkan sepenuhnya sebagai notifikasi sistem imersif." },
-      { "icon": "revenuecat", "text": "Gating Langganan", "description": "Hak akses dikelola real-time dengan integrasi RevenueCat." }
+      {
+        "icon": "psychology",
+        "text": "Acara AI Generatif",
+        "description": "Progresi cerita dinamis yang didukung LLM menghasilkan peristiwa kehidupan tahun demi tahun."
+      },
+      {
+        "icon": "work",
+        "text": "Jalur Karier Beragam",
+        "description": "Naik peringkat dalam karier spesialisasi seperti Startup Founder, Crime Boss, atau Politician."
+      },
+      {
+        "icon": "send",
+        "text": "Simulasi Notifikasi",
+        "description": "Terlibat dalam pilihan game yang dimodelkan sepenuhnya sebagai notifikasi sistem imersif."
+      },
+      {
+        "icon": "revenuecat",
+        "text": "Gating Langganan",
+        "description": "Hak akses dikelola real-time dengan integrasi RevenueCat."
+      }
     ]
   },
   {
@@ -77,10 +173,26 @@
     "category": "Aplikasi Mobile",
     "version": "AKTIF",
     "features": [
-      { "icon": "auto_fix_high", "text": "Sintesis Google Lyria", "description": "Menghasilkan klip 30 detik atau trek penuh menggunakan model audio Lyria khusus." },
-      { "icon": "palette", "text": "Generasi Cover Gemini", "description": "Secara otomatis membuat cover album visual yang cocok menggunakan generasi gambar Gemini." },
-      { "icon": "cloud_done", "text": "Pipeline Audio Serverless", "description": "Mengurangi kredit pengguna dan memproses pekerjaan secara asinkron via Cloud Functions dan FFmpeg." },
-      { "icon": "visibility", "text": "Pemutar Audio Kustom", "description": "Pemutaran in-app dengan dukungan layanan audio background." }
+      {
+        "icon": "auto_fix_high",
+        "text": "Sintesis Google Lyria",
+        "description": "Menghasilkan klip 30 detik atau trek penuh menggunakan model audio Lyria khusus."
+      },
+      {
+        "icon": "palette",
+        "text": "Generasi Cover Gemini",
+        "description": "Secara otomatis membuat cover album visual yang cocok menggunakan generasi gambar Gemini."
+      },
+      {
+        "icon": "cloud_done",
+        "text": "Pipeline Audio Serverless",
+        "description": "Mengurangi kredit pengguna dan memproses pekerjaan secara asinkron via Cloud Functions dan FFmpeg."
+      },
+      {
+        "icon": "visibility",
+        "text": "Pemutar Audio Kustom",
+        "description": "Pemutaran in-app dengan dukungan layanan audio background."
+      }
     ]
   }
 ]

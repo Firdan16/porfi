@@ -42,16 +42,16 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, isClosing,
         if (isOpen && !isClosing) {
             // Kill any existing animations first
             gsap.killTweensOf([overlayRef.current, modalRef.current]);
-            
+
             // Ensure initial state is set
             gsap.set(overlayRef.current, { autoAlpha: 0 });
             gsap.set(modalRef.current, { scale: 0.9, y: 20, autoAlpha: 0 });
-            
+
             window.isModalOpen = true;
             window.lenis?.stop();
             document.body.style.overflow = "hidden";
             document.documentElement.style.overflow = "hidden";
-            
+
             gsap.to(overlayRef.current, {
                 autoAlpha: 1,
                 duration: 0.4,
@@ -130,7 +130,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, isClosing,
                             </span>
                             {project.category}
                         </div>
-                        
+
                         <h2 className="text-3xl md:text-5xl xl:text-6xl font-black text-text-primary tracking-tighter leading-[0.9] raised-text -mt-2">
                             {project.title}
                         </h2>
@@ -159,7 +159,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, isClosing,
                     </div>
 
                     {/* Right Section: Imagery */}
-                    <div 
+                    <div
                         className="lg:col-span-12 xl:col-span-7 relative flex items-center justify-center min-h-[450px] md:min-h-[600px] xl:min-h-0 overflow-hidden"
                         style={{ backgroundColor: project.color }}
                     >
@@ -169,26 +169,25 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, isClosing,
                                 {/* Concave Gradient Shading */}
                                 <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-white/5 opacity-50"></div>
                                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(0,0,0,0.3)_0%,transparent_70%)] opacity-80"></div>
-                                
+
                                 {/* Micro-detail: Inner Rim Highlight */}
                                 <div className="absolute inset-[2px] rounded-[3.9rem] border-b border-white/10 opacity-30 pointer-events-none"></div>
-                                
+
                                 <div className="absolute inset-0 laser-grid opacity-5 mix-blend-overlay"></div>
                             </div>
                         </div>
 
-                        <div 
+                        <div
                             className="relative z-10 w-full h-full flex items-center justify-center p-8 lg:p-12 xl:p-24 overflow-hidden cursor-pointer"
                             onClick={() => setActiveIdx((prev) => (prev < project.images.length - 1 ? prev + 1 : 0))}
                         >
                             {project.images.map((img, idx) => (
                                 <div
                                     key={idx}
-                                    className={`absolute inset-0 w-full h-full flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${
-                                        activeIdx === idx 
-                                        ? 'opacity-100 scale-100 translate-x-0' 
-                                        : idx < activeIdx ? 'opacity-0 scale-90 -translate-x-full' : 'opacity-0 scale-90 translate-x-full'
-                                    }`}
+                                    className={`absolute inset-0 w-full h-full flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${activeIdx === idx
+                                            ? 'opacity-100 scale-100 translate-x-0'
+                                            : idx < activeIdx ? 'opacity-0 scale-90 -translate-x-full' : 'opacity-0 scale-90 translate-x-full'
+                                        }`}
                                 >
                                     <img
                                         src={img}
@@ -208,8 +207,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, isClosing,
                             {/* Image Counter (Pill Style) */}
                             <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-3 z-30 px-6 py-2 rounded-full bg-black/40 backdrop-blur-md border border-white/5 shadow-lg">
                                 {project.images.map((_, i) => (
-                                    <div 
-                                        key={i} 
+                                    <div
+                                        key={i}
                                         className={`h-1.5 rounded-full bg-white transition-all duration-500 ${activeIdx === i ? 'w-8 opacity-100' : 'w-2 opacity-10'}`}
                                     ></div>
                                 ))}
