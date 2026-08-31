@@ -6,6 +6,7 @@
   "nav": {
     "home": "Beranda",
     "stack": "Stack",
+    "agents": "Agents",
     "work": "Karya",
     "contact": "Kontak"
   },
@@ -71,6 +72,12 @@
         "hermes": "Hermes"
       }
     }
+  },
+  "hermesPersonas": {
+    "heading": "Hermes",
+    "headingAccent": "Squad",
+    "subtitle": "Tiga partner AI di tim Firdan — masing-masing punya peran, suara, dan spesialisasi sendiri.",
+    "rosterLabel": "Tim Partner"
   },
   "projects": {
     "heading": "Stack Proyek",

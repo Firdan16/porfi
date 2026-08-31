@@ -103,7 +103,7 @@ export default function Header() {
                             onClick={handleHomeClick}
                         >
                             <AppIcon name="home" className="h-4 w-4 md:h-5 md:w-5 opacity-50 group-hover:opacity-100 transition-opacity" />
-                            <span>{t("home")}</span>
+                            <span className="hidden sm:inline">{t("home")}</span>
                         </Link>
                     </MagneticElement>
 
@@ -116,7 +116,18 @@ export default function Header() {
                             onClick={(e) => handleSmoothScroll(e, "#stack")}
                         >
                             <AppIcon name="hub" className="h-4 w-4 md:h-5 md:w-5 opacity-50 group-hover:opacity-100 transition-opacity" />
-                            {t("stack")}
+                            <span className="hidden sm:inline">{t("stack")}</span>
+                        </a>
+                    </MagneticElement>
+
+                    <MagneticElement as="div">
+                        <a
+                            className="px-3 sm:px-4 md:px-6 py-2 md:py-2.5 rounded-full text-text-secondary text-xs md:text-base font-bold hover:text-primary transition-all duration-300 hover:bg-white/80 hover:shadow-sm flex items-center gap-1.5 md:gap-2 group"
+                            href="#personas"
+                            onClick={(e) => handleSmoothScroll(e, "#personas")}
+                        >
+                            <AppIcon name="psychology" className="h-4 w-4 md:h-5 md:w-5 opacity-50 group-hover:opacity-100 transition-opacity" />
+                            <span className="hidden sm:inline">{t("agents")}</span>
                         </a>
                     </MagneticElement>
 
@@ -127,7 +138,7 @@ export default function Header() {
                             onClick={(e) => handleSmoothScroll(e, "#work")}
                         >
                             <AppIcon name="work" className="h-4 w-4 md:h-5 md:w-5 opacity-50 group-hover:opacity-100 transition-opacity" />
-                            {t("work")}
+                            <span className="hidden sm:inline">{t("work")}</span>
                         </a>
                     </MagneticElement>
 
@@ -138,7 +149,7 @@ export default function Header() {
                             onClick={(e) => handleSmoothScroll(e, "#contact")}
                         >
                             <AppIcon name="alternate_email" className="h-4 w-4 md:h-5 md:w-5 opacity-50 group-hover:opacity-100 transition-opacity" />
-                            {t("contact")}
+                            <span className="hidden sm:inline">{t("contact")}</span>
                         </a>
                     </MagneticElement>
 

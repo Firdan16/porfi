@@ -3,6 +3,7 @@ import CustomCursorLoader from "../components/CustomCursorLoader";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import { getProjects } from "@/content/projects";
+import { getPersonas } from "@/content/hermes-personas";
 import type { Locale } from "@/i18n/routing";
 import { routing } from "@/i18n/routing";
 import { setRequestLocale } from "next-intl/server";
@@ -11,6 +12,10 @@ export const dynamic = "force-static";
 
 const TechStack = nextDynamic(() => import("../components/TechStack"), {
   loading: () => <section className="min-h-[40vh]" aria-hidden />,
+});
+
+const HermesPersonas = nextDynamic(() => import("../components/HermesPersonas"), {
+  loading: () => <section className="min-h-[50vh]" aria-hidden />,
 });
 
 const Projects = nextDynamic(() => import("../components/Projects"), {
@@ -34,6 +39,7 @@ export default async function Home({
 
   setRequestLocale(locale);
   const projects = await getProjects(locale as Locale);
+  const personas = await getPersonas(locale as Locale);
 
   return (
     <>
@@ -44,6 +50,7 @@ export default async function Home({
         <main className="flex-grow pt-24 relative z-10">
           <Hero />
           <TechStack />
+          <HermesPersonas personas={personas} />
           <Projects projects={projects} />
           <Footer />
         </main>

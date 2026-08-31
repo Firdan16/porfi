@@ -6,6 +6,7 @@
   "nav": {
     "home": "Home",
     "stack": "Stack",
+    "agents": "Agents",
     "work": "Work",
     "contact": "Contact"
   },
@@ -71,6 +72,12 @@
         "hermes": "Hermes"
       }
     }
+  },
+  "hermesPersonas": {
+    "heading": "Hermes",
+    "headingAccent": "Squad",
+    "subtitle": "Three AI partners on Firdan's team — each with their own role, voice, and specialty.",
+    "rosterLabel": "Team Roster"
   },
   "projects": {
     "heading": "Project Stack",

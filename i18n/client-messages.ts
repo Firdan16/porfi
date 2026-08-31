@@ -2,6 +2,7 @@ const CLIENT_NAMESPACES = [
   "nav",
   "hero",
   "techStack",
+  "hermesPersonas",
   "projects",
   "footer",
 ] as const;
