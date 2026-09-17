@@ -27,6 +27,9 @@ export async function getPersonas(locale: Locale): Promise<HermesPersona[]> {
       voiceHook: translation.voiceHook,
       voiceQuote: translation.voiceQuote,
       specialties: translation.specialties,
+      directive: translation.directive ?? persona.directive,
+      transmissionSample: translation.transmissionSample ?? persona.transmissionSample,
+      styleTag: translation.styleTag ?? persona.styleTag,
     };
   });
 }

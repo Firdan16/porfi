@@ -77,7 +77,17 @@
     "heading": "Hermes",
     "headingAccent": "Squad",
     "subtitle": "Three AI partners on Firdan's team — each with their own role, voice, and specialty.",
-    "rosterLabel": "Team Roster"
+    "rosterLabel": "Team Roster",
+    "badgeLabel": "AUTONOMOUS OPERATIVE FILE",
+    "statusSynced": "SIGNAL SYNCHRONIZED",
+    "tabCapabilities": "Focus & Capabilities",
+    "tabTransmission": "Live Transmission",
+    "copyPrompt": "Copy Prompt",
+    "copiedPrompt": "Copied to Clipboard",
+    "directiveLabel": "Workflow Directive",
+    "telemetryRole": "Role",
+    "telemetryFreq": "Frequency",
+    "telemetryStyle": "Style"
   },
   "projects": {
     "heading": "Project Stack",

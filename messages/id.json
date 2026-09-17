@@ -77,7 +77,17 @@
     "heading": "Hermes",
     "headingAccent": "Squad",
     "subtitle": "Tiga partner AI di tim Firdan — masing-masing punya peran, suara, dan spesialisasi sendiri.",
-    "rosterLabel": "Tim Partner"
+    "rosterLabel": "Tim Partner",
+    "badgeLabel": "BERKAS OPERATIF OTONOM",
+    "statusSynced": "SINYAL TERSINKRONISASI",
+    "tabCapabilities": "Fokus & Kapabilitas",
+    "tabTransmission": "Transmisi Langsung",
+    "copyPrompt": "Salin Prompt",
+    "copiedPrompt": "Tersalin ke Clipboard",
+    "directiveLabel": "Direktif Alur Kerja",
+    "telemetryRole": "Peran",
+    "telemetryFreq": "Frekuensi",
+    "telemetryStyle": "Gaya"
   },
   "projects": {
     "heading": "Stack Proyek",
