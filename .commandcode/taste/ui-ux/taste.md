@@ -1,0 +1,25 @@
+# UI/UX Preferences
+
+- Demands high visual craft: wants layouts that are menarik, unik, interaktif, and aesthetic — generic/standard-looking designs get rejected. Confidence: 0.9
+- Prefers art-directed, personal, and asymmetric editorial compositions over rigid design systems, repeated card grids, uniform split panels, and template-like layouts. Confidence: 0.95
+- Explicitly rejects interfaces that feel stiff, overly systematic, or like “AI slop”; creative direction should feel authored and modern rather than generically generated. Confidence: 0.95
+- Requires responsiveness across all screen sizes and expects each breakpoint to be reasoned about individually, not just "it scales". Confidence: 0.9
+- Prioritizes consistent component sizing: when content length changes (e.g. switching languages), sizes must stay consistent and sensible, with nothing disproportionately small/large ("jangan ada yang jomplang ukurannya"). Confidence: 0.8
+- Dislikes visible scrollbars: prefers scrollbars hidden (main page and dialogs) and no scroll gestures inside dialogs, to avoid layout shift and visual glitches during open/close transitions. Confidence: 0.8
+- Cares about polish of transitions — flags glitches/flicker during dialog close and asks for smooth animations (e.g. smooth flag/language switch). Confidence: 0.8
+- Prefers generous, well-used spacing but no wasted empty space ("masih banyak ruang tersisa", "masih banyak space" on the intro) — balance, not compaction that makes the design look cramped. Confidence: 0.7
+- Expects imagery inside frames or stages to be slightly restrained and optically centered, with even breathing room on all sides so the asset feels balanced with the overall composition rather than touching the edges. Confidence: 0.85
+- Prefers fixed headers to use an opaque, readable surface; content should not show through or visually collide with the header while scrolling. Confidence: 0.95
+- Likes ambient, tasteful color treatments that match the surrounding container; aesthetic cohesion matters more than contrasty accents ("kurang menyatu dengan wadahnya"). Confidence: 0.7
+- Rejects visual treatments that feel forced or decorative; prefers restrained, whitespace-led UI with minimal rules — excessive borders or underlines are distracting and harm the experience. Project frames/stages should stay unframed, avoiding heavy borders, offset shadows, gradients, and labels layered over imagery when they conflict with the site's core concept. Confidence: 0.95
+- Favors element-focused hero treatments — e.g. making the avatar the visual highlight, cropping/width adjusted so the subject isn't cut off. Confidence: 0.8
+- Prefers holistic UI audits and redesigns that unify every section around one coherent theme/concept, rather than isolated component patches. Confidence: 0.9
+- Gives special priority to project-detail previews on mobile and tablet, expecting their responsive layout and usability to be analyzed independently and carefully. Confidence: 0.9
+- Prefers minimal dot-index pagination for multi-image project galleries over verbose image counters and thumbnail strips. Confidence: 0.9
+- Prefers gallery transitions to use subtle, smooth, direction-aware micro-animations when moving left or right. Confidence: 0.9
+- Prioritizes strong, reliable text contrast and legibility, especially for contact/content sections on dark backgrounds; text should never visually disappear into its surface. Confidence: 0.95
+- Wants section layouts to be neatly organized with clear grouping and responsive stacking, avoiding collisions, awkward spacing, or competing footer/contact elements. Confidence: 0.9
+- Rejects flat, imagery-free panels (solid color blocks holding only text/metadata) as "jelek banget"; visual panels should be driven by real project media (actual screenshots/demo recordings), especially when a neighboring variant of the same component already shows rich imagery. Confidence: 0.75
+- Dislikes duplicated headings inside one composition — a project title repeated both inside the visual panel and in the adjacent content block is treated as a defect. Confidence: 0.7
+- Judges no-quality harshly and consistently across content types: every project/variant must meet the same visual bar, not just the flagship one — when a new type looks weaker than the existing one, it is called out immediately. Confidence: 0.8
+- Wants consistent iconography across parallel UI: every comparable item (e.g. each social/contact link) should carry its own icon/logo, applied uniformly wherever the same pattern appears (Hero and Footer), not just some items. Confidence: 0.8

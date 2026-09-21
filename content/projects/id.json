@@ -194,5 +194,33 @@
         "description": "Pemutaran in-app dengan dukungan layanan audio background."
       }
     ]
+  },
+  {
+    "id": 8,
+    "description": "Package Flutter untuk spotlight coach mark dan tur onboarding. Meredupkan layar, menyorot widget apa pun lewat cut-out, lalu menjelaskannya dengan kartu yang sepenuhnya dapat dikustomisasi. Tanpa dependency.",
+    "category": "Package Flutter",
+    "version": "0.2.0",
+    "features": [
+      {
+        "icon": "sparkles",
+        "text": "Mesin Spotlight",
+        "description": "Merender cut-out yang mengikuti widget anchor, lengkap dengan opsi rim lembut, blur, dan pulse."
+      },
+      {
+        "icon": "visibility",
+        "text": "Belajar dengan Melakukan",
+        "description": "Action gate meneruskan tap melalui lubang ke kontrol asli dan menunggu pengguna menyelesaikannya."
+      },
+      {
+        "icon": "sync",
+        "text": "Perilaku Seperti Route",
+        "description": "Gesture back, konfigurasi dismissible, dan hasil yang menjelaskan bagaimana tur berakhir."
+      },
+      {
+        "icon": "brush",
+        "text": "Sepenuhnya Dapat Ditentukan Tema",
+        "description": "Semua warna dan gaya teks mengikuti ThemeData sekitar, atau ganti kartunya sepenuhnya."
+      }
+    ]
   }
 ]

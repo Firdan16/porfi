@@ -8,9 +8,10 @@ export default function CustomCursor() {
     useEffect(() => {
         const cursorDot = cursorDotRef.current;
         const cursorOutline = cursorOutlineRef.current;
-        const isTouch = window.matchMedia("(hover: none)").matches;
+        const isFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-        if (isTouch) return;
+        if (!isFinePointer || reduceMotion) return;
 
         const handleMouseMove = (e: MouseEvent) => {
             const posX = e.clientX;
@@ -37,8 +38,9 @@ export default function CustomCursor() {
 
         window.addEventListener("mousemove", handleMouseMove);
 
+        let interactiveElements: NodeListOf<Element>;
         const attachHoverEffects = () => {
-            const interactiveElements = document.querySelectorAll(
+            interactiveElements = document.querySelectorAll(
                 "a, button, .tech-switch, .project-slab, .locale-toggle, input, textarea"
             );
             interactiveElements.forEach((el) => {
@@ -53,6 +55,11 @@ export default function CustomCursor() {
         return () => {
             window.removeEventListener("mousemove", handleMouseMove);
             clearTimeout(timeoutId);
+            interactiveElements?.forEach((el) => {
+                el.removeEventListener("mouseenter", handleMouseEnter);
+                el.removeEventListener("mouseleave", handleMouseLeave);
+            });
+            document.body.classList.remove("hovering");
         };
     }, []);
 

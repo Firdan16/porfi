@@ -6,9 +6,12 @@
   "nav": {
     "home": "Beranda",
     "stack": "Stack",
+    "experience": "Pengalaman",
     "agents": "Agents",
-    "work": "Karya",
-    "contact": "Kontak"
+    "projects": "Proyek",
+    "contact": "Kontak",
+    "primaryNavigation": "Navigasi utama",
+    "menu": "Menu"
   },
   "hero": {
     "name": "Firdan Umar",
@@ -22,9 +25,9 @@
     "linkedinTitle": "LinkedIn"
   },
   "techStack": {
-    "heading": "Modul",
-    "headingAccent": "Teknis",
-    "subtitle": "Komponen perangkat lunak yang dirancang presisi untuk skalabilitas dan performa.",
+    "heading": "Bahan",
+    "headingAccent": "kerja",
+    "subtitle": "Alatnya berubah mengikuti masalah. Perhatiannya tetap sama.",
     "defaultLabel": "Inti Tersinkronisasi",
     "cards": {
       "flutter": {
@@ -56,6 +59,9 @@
       "label": "Logika Kolaboratif",
       "heading": "Alur Kerja",
       "headingAccent": "Ekosistem",
+      "sectionEyebrow": "Bahan kerja",
+      "statement": "Alatnya berubah mengikuti masalah. Perhatiannya tetap sama.",
+      "toolsCount": "{count} alat",
       "tools": {
         "figma": "Desain Figma",
         "github": "Versioning GitHub",
@@ -76,27 +82,107 @@
   "hermesPersonas": {
     "heading": "Hermes",
     "headingAccent": "Squad",
-    "subtitle": "Tiga partner AI di tim Firdan — masing-masing punya peran, suara, dan spesialisasi sendiri.",
-    "rosterLabel": "Tim Partner",
-    "badgeLabel": "BERKAS OPERATIF OTONOM",
-    "statusSynced": "SINYAL TERSINKRONISASI",
-    "tabCapabilities": "Fokus & Kapabilitas",
-    "tabTransmission": "Transmisi Langsung",
-    "copyPrompt": "Salin Prompt",
-    "copiedPrompt": "Tersalin ke Clipboard",
-    "directiveLabel": "Direktif Alur Kerja",
+    "subtitle": "Tiga partner AI di tim Firdan. Masing-masing punya peran, suara, dan spesialisasi sendiri.",
+    "rosterLabel": "Partner kerja",
+    "badgeLabel": "MODE KERJA PERSONAL",
+    "statusSynced": "MODE AKTIF",
+    "tabCapabilities": "Cara kerja",
+    "tabTransmission": "Prompt dan respons",
+    "copyPrompt": "Salin prompt",
+    "copiedPrompt": "Tersalin",
+    "directiveLabel": "Cara partner ini membantu",
     "telemetryRole": "Peran",
-    "telemetryFreq": "Frekuensi",
-    "telemetryStyle": "Gaya"
+    "telemetryFreq": "Fokus",
+    "telemetryStyle": "Gaya",
+    "sectionEyebrow": "Orang-orang dalam proses",
+    "headingStatement": "Hermes punya lebih dari satu suara.",
+    "usefulInstincts": "Insting yang berguna",
+    "roleLabel": "Peran",
+    "styleLabel": "Gaya",
+    "focusLabel": "Fokus",
+    "promptLabel": "Firdan / prompt",
+    "responseLabel": "respons",
+    "noResponse": "Belum ada contoh respons.",
+    "independentStyle": "Mandiri",
+    "detailViews": "Detail persona"
+  },
+  "experience": {
+    "eyebrow": "Pengalaman / tempat kerja berlangsung",
+    "heading": "Kerja dalam konteks.",
+    "subtitle": "Catatan tentang tim, produk, dan sistem yang pernah saya bantu bawa dari ide hingga rilis.",
+    "entries": {
+      "moon": {
+        "company": "Moon Apps",
+        "location": "Remote / Turki",
+        "role": "Full-Stack Mobile Developer dan Automation Engineer",
+        "summary": "Memimpin pengembangan end-to-end berbagai aplikasi mobile berbasis AI, dari arsitektur MVP dan pengerjaan interface hingga testing, monetisasi, dan rilis.",
+        "bullets": {
+          "one": "Membangun LifeOS, MusicAI, dan Text RPG melalui desain database, custom UI, dan automated testing.",
+          "two": "Mengimplementasikan subscription RevenueCat dan in-app purchase yang aman di seluruh portfolio produk.",
+          "three": "Mengintegrasikan Lyria, Gemini Vision, Veo, LLM API, Cloud Functions, dan pipeline FFmpeg.",
+          "four": "Menggunakan Cursor, Claude Code, dan Agent Hermes untuk mempercepat UI, refactoring, dan delivery."
+        }
+      },
+      "bengkel": {
+        "company": "PT Bengkel Aplikasi Nusantara",
+        "location": "Bandung, Indonesia",
+        "role": "Full-Stack Mobile Developer dan Automation Engineer",
+        "summary": "Mengelola deployment cycle, live release, delivery lintas tim, dan sistem produksi untuk aplikasi mobile yang digunakan pelanggan.",
+        "bullets": {
+          "one": "Mengelola rilis App Store Connect dan Google Play untuk Suluk dan Travelogi.",
+          "two": "Membangun alur distribusi CI/CD dengan Codemagic dan TestFlight.",
+          "three": "Mengembangkan platform PPOB dengan integrasi pembayaran dan sistem absensi HR.",
+          "four": "Membuat pipeline konten n8n yang mengurangi pekerjaan publishing manual lebih dari 15 jam per minggu."
+        }
+      },
+      "langgeng": {
+        "company": "PT Langgeng Sejahtera Kreasi Komputasi",
+        "location": "Bandung, Indonesia",
+        "role": "Intern Mobile Developer",
+        "summary": "Mengembangkan aplikasi mobile IoT untuk otomasi rumah dan sistem penyiraman pintar, menghubungkan batasan hardware dengan pengalaman software yang andal.",
+        "bullets": {
+          "one": "Membangun Smart Card Saga dan Smart Watering untuk monitoring serta analisis real-time.",
+          "two": "Mengintegrasikan RabbitMQ untuk komunikasi asynchronous dan sistem yang lebih tangguh.",
+          "three": "Mengimplementasikan SQLite untuk fungsi mobile-IoT offline yang andal.",
+          "four": "Bekerja lintas tim hardware dan software untuk membawa prototype menuju produksi."
+        }
+      }
+    }
   },
   "projects": {
-    "heading": "Stack Proyek",
+    "heading": "Karya",
+    "headingAccent": "Pilihan",
+    "subtitle": "Arsip kecil berisi produk mobile, alat AI, dan dunia digital yang dibangun dengan struktur dan rasa.",
     "interfaceAlt": "Antarmuka {title}",
     "slideAlt": "Slide {title} {index}",
     "marketplace": "Marketplace",
     "availableOn": "Tersedia di",
     "googlePlay": "Google Play",
-    "appStore": "App Store"
+    "appStore": "App Store",
+    "openDetails": "Buka detail project {title}",
+    "closeDetails": "Tutup detail project",
+    "previousImage": "Gambar sebelumnya",
+    "nextImage": "Gambar berikutnya",
+    "goToImage": "Buka gambar {index}",
+    "imageCounter": "Gambar {current} dari {total}",
+    "viewProject": "Lihat proyek",
+    "sectionEyebrow": "Karya pilihan / dunia yang berubah",
+    "projectIndex": "Indeks proyek",
+    "coreIdea": "Gagasan utama",
+    "alsoIncludes": "Termasuk juga",
+    "builtWith": "Dibangun dengan",
+    "screenshots": "Screenshot proyek",
+    "openVisualStudy": "Buka tampilan proyek",
+    "projectPosition": "{current} dari {total}",
+    "installLabel": "Pasang",
+    "usageLabel": "Penggunaan",
+    "platformsLabel": "Platform",
+    "licenseLabel": "Lisensi",
+    "dependenciesLabel": "Dependency",
+    "publisherLabel": "Publisher",
+    "registryLabel": "Registry package",
+    "viewOnPubDev": "Lihat di pub.dev",
+    "viewRepository": "Lihat repositori"
   },
   "footer": {
     "headingLine1": "Terhubung dengan",
@@ -104,6 +190,10 @@
     "availability": "Saat ini tersedia untuk pekerjaan kontrak terpilih dan konsultasi teknis. Mari bangun sesuatu yang tangguh.",
     "downloadResume": "Unduh CV",
     "copyright": "© 2026 Firdan Umar.",
-    "resumePath": "/CV_Firdan Umar Arisyawal_New_Inggris.pdf"
+    "resumePath": "/CV_Firdan Umar Arisyawal_New_Inggris.pdf",
+    "eyebrow": "Kolofon / 2026",
+    "emailLabel": "Email",
+    "elsewhereLabel": "Di tempat lain",
+    "closingLine": "Dibangun di antara sistem, cerita, dan layar."
   }
 }

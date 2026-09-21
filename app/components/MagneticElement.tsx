@@ -19,7 +19,9 @@ export default function MagneticElement({
 
     useEffect(() => {
         const element = elementRef.current;
-        if (!element || window.matchMedia("(hover: none)").matches) return;
+        const canMagnetize = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (!element || !canMagnetize || reduceMotion) return;
 
         let frameId = 0;
         const strength = 12;
@@ -51,7 +53,7 @@ export default function MagneticElement({
     }, []);
 
     return (
-        <Component ref={elementRef} className={`magnetic-target ${className}`} {...props}>
+        <Component ref={elementRef} className={`magnetic-target ${ className}`} {...props}>
             {children}
         </Component>
     );

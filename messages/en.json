@@ -6,9 +6,12 @@
   "nav": {
     "home": "Home",
     "stack": "Stack",
+    "experience": "Experience",
     "agents": "Agents",
-    "work": "Work",
-    "contact": "Contact"
+    "projects": "Projects",
+    "contact": "Contact",
+    "primaryNavigation": "Primary navigation",
+    "menu": "Menu"
   },
   "hero": {
     "name": "Firdan Umar",
@@ -22,9 +25,9 @@
     "linkedinTitle": "LinkedIn"
   },
   "techStack": {
-    "heading": "Technical",
-    "headingAccent": "Modules",
-    "subtitle": "Precision-engineered software components designed for scalability and performance.",
+    "heading": "Working",
+    "headingAccent": "materials",
+    "subtitle": "The tools change with the problem. The attention to detail stays.",
     "defaultLabel": "Synchronized Core",
     "cards": {
       "flutter": {
@@ -56,6 +59,9 @@
       "label": "Collaborative Logic",
       "heading": "Workflow",
       "headingAccent": "Ecosystem",
+      "sectionEyebrow": "Working materials",
+      "statement": "The tools change with the problem. The attention to detail stays.",
+      "toolsCount": "{count} tools",
       "tools": {
         "figma": "Figma Design",
         "github": "GitHub Versioning",
@@ -76,27 +82,107 @@
   "hermesPersonas": {
     "heading": "Hermes",
     "headingAccent": "Squad",
-    "subtitle": "Three AI partners on Firdan's team — each with their own role, voice, and specialty.",
-    "rosterLabel": "Team Roster",
-    "badgeLabel": "AUTONOMOUS OPERATIVE FILE",
-    "statusSynced": "SIGNAL SYNCHRONIZED",
-    "tabCapabilities": "Focus & Capabilities",
-    "tabTransmission": "Live Transmission",
-    "copyPrompt": "Copy Prompt",
-    "copiedPrompt": "Copied to Clipboard",
-    "directiveLabel": "Workflow Directive",
+    "subtitle": "Three AI partners on Firdan's team. Each has a distinct role, voice, and specialty.",
+    "rosterLabel": "Working cast",
+    "badgeLabel": "PERSONAL WORKING MODE",
+    "statusSynced": "CURRENT MODE",
+    "tabCapabilities": "Working style",
+    "tabTransmission": "Prompt and response",
+    "copyPrompt": "Copy prompt",
+    "copiedPrompt": "Copied",
+    "directiveLabel": "How this partner helps",
     "telemetryRole": "Role",
-    "telemetryFreq": "Frequency",
-    "telemetryStyle": "Style"
+    "telemetryFreq": "Focus",
+    "telemetryStyle": "Style",
+    "sectionEyebrow": "People in the process",
+    "headingStatement": "Hermes is not one voice.",
+    "usefulInstincts": "Useful instincts",
+    "roleLabel": "Role",
+    "styleLabel": "Style",
+    "focusLabel": "Focus",
+    "promptLabel": "Firdan / prompt",
+    "responseLabel": "response",
+    "noResponse": "No response sample available.",
+    "independentStyle": "Independent",
+    "detailViews": "Persona detail views"
+  },
+  "experience": {
+    "eyebrow": "Experience / where the work happened",
+    "heading": "Work in context.",
+    "subtitle": "A record of the teams, products, and systems I have helped move from idea to release.",
+    "entries": {
+      "moon": {
+        "company": "Moon Apps",
+        "location": "Remote / Turkey",
+        "role": "Full-Stack Mobile Developer and Automation Engineer",
+        "summary": "Led end-to-end delivery across a portfolio of AI-driven mobile applications, from MVP architecture and interface work to testing, monetization, and release.",
+        "bullets": {
+          "one": "Built LifeOS, MusicAI, and Text RPG through database design, custom UI, and automated testing.",
+          "two": "Implemented RevenueCat subscriptions and secure in-app purchases across the product portfolio.",
+          "three": "Integrated Lyria, Gemini Vision, Veo, LLM APIs, Cloud Functions, and FFmpeg pipelines.",
+          "four": "Used Cursor, Claude Code, and Agent Hermes to accelerate UI work, refactoring, and delivery."
+        }
+      },
+      "bengkel": {
+        "company": "PT Bengkel Aplikasi Nusantara",
+        "location": "Bandung, Indonesia",
+        "role": "Full-Stack Mobile Developer and Automation Engineer",
+        "summary": "Owned deployment cycles, live releases, cross-team delivery, and production systems for mobile applications used by real customers.",
+        "bullets": {
+          "one": "Managed App Store Connect and Google Play releases for Suluk and Travelogi.",
+          "two": "Built CI/CD distribution flows with Codemagic and TestFlight.",
+          "three": "Developed a PPOB platform with payment integrations and an HR attendance system.",
+          "four": "Created an n8n content pipeline that reduced manual publishing work by more than 15 hours weekly."
+        }
+      },
+      "langgeng": {
+        "company": "PT Langgeng Sejahtera Kreasi Komputasi",
+        "location": "Bandung, Indonesia",
+        "role": "Intern Mobile Developer",
+        "summary": "Developed mobile IoT applications for home automation and smart watering systems, connecting device constraints with reliable software experiences.",
+        "bullets": {
+          "one": "Built Smart Card Saga and Smart Watering for real-time monitoring and analysis.",
+          "two": "Integrated RabbitMQ for asynchronous communication and resilient system behavior.",
+          "three": "Implemented SQLite for reliable offline mobile-IoT functionality.",
+          "four": "Worked across hardware and software teams to move prototypes toward production."
+        }
+      }
+    }
   },
   "projects": {
-    "heading": "Project Stack",
+    "heading": "Featured",
+    "headingAccent": "Projects",
+    "subtitle": "A small archive of mobile products, AI tools, and digital worlds built with structure and feeling.",
     "interfaceAlt": "{title} interface",
     "slideAlt": "{title} slide {index}",
     "marketplace": "Marketplace",
     "availableOn": "Available on",
     "googlePlay": "Google Play",
-    "appStore": "App Store"
+    "appStore": "App Store",
+    "openDetails": "Open project details for {title}",
+    "closeDetails": "Close project details",
+    "previousImage": "Previous image",
+    "nextImage": "Next image",
+    "goToImage": "Go to image {index}",
+    "imageCounter": "Image {current} of {total}",
+    "viewProject": "View project",
+    "sectionEyebrow": "Selected work / changing worlds",
+    "projectIndex": "Project index",
+    "coreIdea": "Core idea",
+    "alsoIncludes": "Also includes",
+    "builtWith": "Built with",
+    "screenshots": "Project screenshots",
+    "openVisualStudy": "Open visual study",
+    "projectPosition": "{current} of {total}",
+    "installLabel": "Install",
+    "usageLabel": "Usage",
+    "platformsLabel": "Platforms",
+    "licenseLabel": "License",
+    "dependenciesLabel": "Dependencies",
+    "publisherLabel": "Publisher",
+    "registryLabel": "Package registry",
+    "viewOnPubDev": "View on pub.dev",
+    "viewRepository": "View repository"
   },
   "footer": {
     "headingLine1": "Connect with the",
@@ -104,6 +190,10 @@
     "availability": "Currently available for select contract work and technical consultation. Let's build something robust.",
     "downloadResume": "Download Resume",
     "copyright": "© 2026 Firdan Umar.",
-    "resumePath": "/CV_Firdan Umar Arisyawal_New_Inggris.pdf"
+    "resumePath": "/CV_Firdan Umar Arisyawal_New_Inggris.pdf",
+    "eyebrow": "Colophon / 2026",
+    "emailLabel": "Email",
+    "elsewhereLabel": "Elsewhere",
+    "closingLine": "Built between systems, stories, and screens."
   }
 }

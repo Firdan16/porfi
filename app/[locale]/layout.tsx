@@ -70,33 +70,14 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`light elevated-mode ${plusJakartaSans.variable} ${cormorantGaramond.variable}`}
-      style={{ backgroundColor: "#F0F2F5" }}
+      className={`light ${plusJakartaSans.variable} ${cormorantGaramond.variable}`}
     >
       <head>
         <link rel="icon" href="/logo-nonbg.png" type="image/png" />
         <link rel="shortcut icon" href="/logo-nonbg.png" />
         <link rel="apple-touch-icon" href="/logo-nonbg.png" />
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `
-              html, body {
-                background-color: #F0F2F5 !important;
-                color: #1E293B;
-              }
-              a, a:visited, a:link {
-                color: inherit !important;
-                text-decoration: none !important;
-                outline: none !important;
-              }
-              button {
-                outline: none !important;
-              }
-            `,
-          }}
-        />
       </head>
-      <body className="antialiased" style={{ backgroundColor: "#F0F2F5" }}>
+      <body className="antialiased">
         <NextIntlClientProvider messages={clientMessages}>
           {children}
         </NextIntlClientProvider>

@@ -1,164 +1,75 @@
 "use client";
+
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import MagneticElement from "./MagneticElement";
 import { gsap } from "gsap";
-
+import MagneticElement from "./MagneticElement";
+import AppIcon from "./AppIcon";
+import BrandIcon from "./BrandIcon";
 import portraitImg from "@/public/assets/foto_orang.jpg";
+import mark from "@/public/assets/logo-nonbg.png";
 
 export default function Hero() {
     const t = useTranslations("hero");
     const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const heroContainer = containerRef.current;
-        if (!heroContainer) return;
+        const container = containerRef.current;
+        const portrait = container?.querySelector<HTMLElement>("[data-portrait]");
+        const image = portrait?.querySelector<HTMLElement>("img");
+        if (!container || !portrait || !image) return;
 
-        const portraitContainer = heroContainer.querySelector("#hero-portrait-container") || heroContainer;
-        const heroInnerLayer = portraitContainer.querySelector(".hero-frame-inner");
-        const heroImg = portraitContainer.querySelector("img");
-        const isTouch = window.matchMedia("(hover: none)").matches;
-
-        const handleMouseMove = (e: MouseEvent) => {
-            const rect = portraitContainer.getBoundingClientRect();
-            const x = (e.clientX - rect.left) / rect.width - 0.5;
-            const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-            if (heroInnerLayer) {
-                gsap.to(heroInnerLayer, {
-                    rotationY: x * 5,
-                    rotationX: -y * 5,
-                    duration: 0.5,
-                    ease: "power1.out",
-                });
-            }
-
-            if (heroImg) {
-                gsap.to(heroImg, {
-                    scale: 1.05,
-                    x: x * 10,
-                    y: y * 10,
-                    duration: 0.5,
-                    ease: "power1.out",
-                });
-            }
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+        const handleMove = (event: MouseEvent) => {
+            const rect = portrait.getBoundingClientRect();
+            const x = (event.clientX - rect.left) / rect.width - 0.5;
+            const y = (event.clientY - rect.top) / rect.height - 0.5;
+            gsap.to(image, { x: x * 8, y: y * 8, scale: 1.025, duration: 0.4, ease: "power2.out", overwrite: true });
         };
+        const handleLeave = () => gsap.to(image, { x: 0, y: 0, scale: 1, duration: 0.45, ease: "power2.out", overwrite: true });
 
-        const handleMouseLeave = () => {
-            const targets = [];
-            if (heroInnerLayer) targets.push(heroInnerLayer);
-            if (heroImg) targets.push(heroImg);
-
-            if (targets.length > 0) {
-                gsap.to(targets, {
-                    rotationY: 0,
-                    rotationX: 0,
-                    scale: 1,
-                    x: 0,
-                    y: 0,
-                    duration: 1,
-                    ease: "elastic.out(1, 0.5)",
-                });
-            }
-        };
-
-        if (!isTouch) {
-            portraitContainer.addEventListener("mousemove", handleMouseMove as EventListener);
-            portraitContainer.addEventListener("mouseleave", handleMouseLeave);
+        if (finePointer && !reducedMotion) {
+            portrait.addEventListener("mousemove", handleMove);
+            portrait.addEventListener("mouseleave", handleLeave);
         }
 
-        // Smooth non-flashing entrance animation
         const ctx = gsap.context(() => {
-            gsap.fromTo(
-                ".hero-frame", 
-                { x: -16, opacity: 0.85 },
-                { x: 0, opacity: 1, duration: 0.6, ease: "power2.out", overwrite: "auto" }
-            );
-
-            gsap.fromTo(
-                ".hero-text-animate", 
-                { y: 10, opacity: 0.85 },
-                { y: 0, opacity: 1, duration: 0.6, stagger: 0.03, ease: "power2.out", overwrite: "auto" }
-            );
-        }, heroContainer);
+            if (reducedMotion) return;
+            gsap.fromTo("[data-hero-reveal]", { y: 18, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.06, duration: 0.7, ease: "power3.out" });
+        }, container);
 
         return () => {
-            if (!isTouch) {
-                portraitContainer.removeEventListener("mousemove", handleMouseMove as EventListener);
-                portraitContainer.removeEventListener("mouseleave", handleMouseLeave);
-            }
+            portrait.removeEventListener("mousemove", handleMove);
+            portrait.removeEventListener("mouseleave", handleLeave);
             ctx.revert();
         };
     }, []);
 
     return (
-        <section ref={containerRef} className="relative min-h-[85vh] flex flex-col justify-center px-4 py-12 md:px-20 lg:px-40">
-            <div className="layout-content-container flex flex-col max-w-[1300px] w-full mx-auto gap-10 lg:gap-12 lg:flex-row items-center">
-                <div
-                    className="relative w-full max-w-[280px] sm:max-w-[360px] lg:w-1/3 aspect-[4/5] sm:aspect-[3/4] mx-auto lg:mx-0 group transition-all duration-500 hero-frame"
-                    id="hero-portrait-container"
-                >
-                    <div className="hero-frame-inner h-full w-full relative">
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#1E293B]/60 via-transparent to-transparent z-10"></div>
-                        <Image
-                            alt={t("portraitAlt")}
-                            className="object-cover filter grayscale contrast-125 brightness-110 rounded-[2rem]"
-                            src={portraitImg}
-                            fill
-                            priority
-                            sizes="(min-width: 1024px) 380px, (min-width: 640px) 360px, 280px"
-                        />
-                        <div className="absolute bottom-8 left-8 z-20 flex flex-col">
-                        </div>
+        <section ref={containerRef} className="relative min-h-[calc(100dvh-4rem)] overflow-hidden px-4 pb-16 pt-20 sm:px-8 sm:pb-24 sm:pt-28 lg:px-12">
+            <Image src={mark} alt="" aria-hidden="true" className="pointer-events-none absolute -right-24 top-24 z-0 w-[min(48vw,560px)] opacity-[0.07] sm:-right-16 sm:top-28" />
+            <div className="relative z-10 mx-auto grid w-full max-w-[1200px] items-end gap-10 md:grid-cols-[0.92fr_1.08fr] md:gap-12 lg:grid-cols-[minmax(300px,0.75fr)_minmax(0,1.25fr)] lg:gap-20">
+                <div data-portrait className="artifact-frame relative mx-auto aspect-[4/5] w-full max-w-[320px] rotate-[-2deg] md:mx-0 md:max-w-[390px]">
+                    <div className="absolute -bottom-3 -right-3 h-full w-full border border-[var(--identity)] bg-[var(--identity-soft)]" aria-hidden="true" />
+                    <div className="relative h-full w-full overflow-hidden bg-[var(--navy)]">
+                        <Image src={portraitImg} alt={t("portraitAlt")} fill priority sizes="(min-width: 1024px) 34vw, 82vw" className="object-cover grayscale-[20%] contrast-105" />
                     </div>
-                    <div className="absolute top-4 right-4 w-1/3 h-1/2 bg-gradient-to-b from-white/20 to-transparent rounded-tr-[2.5rem] pointer-events-none z-30 opacity-50"></div>
+                    <span className="archive-caption absolute -bottom-8 left-0">Portrait / Firdan Umar / creative technologist</span>
                 </div>
-                <div className="flex flex-col gap-6 lg:gap-8 lg:w-2/3 lg:pl-10 relative z-10 items-center lg:items-start text-center lg:text-left">
-                    <div className="flex flex-col gap-2 items-center lg:items-start">
-                        <h1 className="hero-text-animate text-text-primary text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.85] tracking-tighter raised-text">
-                            {t("name")}
-                        </h1>
-                        <h2 className="hero-text-animate text-primary font-serif italic font-light text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight drop-shadow-sm mt-1 sm:mt-2">
-                            {t("role")}
-                        </h2>
 
-                        <div className="hero-text-animate flex gap-6 mt-6">
-                            <MagneticElement
-                                className="tactile-btn h-14 w-14 flex items-center justify-center rounded-full text-text-secondary hover:text-primary transition-all"
-                                as="a"
-                                href="mailto:firdanmaru@gmail.com"
-                                title={t("gmailTitle")}
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m22 7-10 7L2 7" /><rect width="20" height="14" x="2" y="5" rx="2" /></svg>
-                            </MagneticElement>
-                            <MagneticElement
-                                className="tactile-btn h-14 w-14 flex items-center justify-center rounded-full text-text-secondary hover:text-primary transition-all"
-                                as="a"
-                                href="https://github.com/Firdan16"
-                                target="_blank"
-                                title={t("githubTitle")}
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
-                            </MagneticElement>
-                            <MagneticElement
-                                className="tactile-btn h-14 w-14 flex items-center justify-center rounded-full text-text-secondary hover:text-primary transition-all"
-                                as="a"
-                                href="https://www.linkedin.com/in/firdan-umar-arisyawal-132b11282"
-                                target="_blank"
-                                title={t("linkedinTitle")}
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
-                            </MagneticElement>
-                        </div>
+                <div className="relative pb-2 md:pb-10">
+                    <p data-hero-reveal className="archive-caption mb-5 text-[var(--identity)]">Portfolio / mobile products / AI tools</p>
+                    <h1 data-hero-reveal className="max-w-[760px] font-serif text-[clamp(4.8rem,12vw,10rem)] font-semibold leading-[0.78] tracking-[-0.075em] text-[var(--ink)] sm:text-[clamp(5.5rem,11vw,9rem)]">{t("name")}</h1>
+                    <p data-hero-reveal className="mt-7 max-w-[520px] font-serif text-3xl italic leading-[0.98] text-[var(--identity)] sm:text-4xl md:text-5xl">{t("role")}, building digital products with a point of view.</p>
+                    <div data-hero-reveal className="mt-8 max-w-[470px] border-t border-[var(--line)] pt-5 sm:mt-10">
+                        <p className="text-sm leading-[1.75] text-[var(--ink-soft)] sm:text-base">{t("bioPrefix")} <strong className="font-bold text-[var(--ink)]">{t("bioHighlight")}</strong> {t("bioSuffix")}</p>
                     </div>
-
-                    <div className="hero-text-animate mt-12 flex flex-col items-center lg:items-start text-center lg:text-left gap-4 border-t-[3px] lg:border-t-0 lg:border-l-[3px] border-primary/20 pt-6 lg:pt-0 pl-0 lg:pl-8 max-w-lg group hover:border-primary transition-colors duration-500">
-                        <p className="text-text-secondary text-lg md:text-xl font-medium leading-[1.6] font-sans italic opacity-85">
-                            {t("bioPrefix")}{" "}
-                            <span className="text-text-primary font-bold not-italic">{t("bioHighlight")}</span>{" "}
-                            {t("bioSuffix")}
-                        </p>
+                    <div data-hero-reveal className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3 sm:mt-9">
+                        <MagneticElement as="a" href="mailto:firdanmaru@gmail.com" aria-label={t("gmailTitle")} className="archive-link"><AppIcon name="alternate_email" className="h-4 w-4 shrink-0" /> Email</MagneticElement>
+                        <MagneticElement as="a" href="https://github.com/Firdan16" target="_blank" rel="noopener noreferrer" aria-label={t("githubTitle")} className="archive-link"><BrandIcon name="github" className="h-4 w-4 shrink-0" /> GitHub</MagneticElement>
+                        <MagneticElement as="a" href="https://www.linkedin.com/in/firdan-umar-arisyawal-132b11282" target="_blank" rel="noopener noreferrer" aria-label={t("linkedinTitle")} className="archive-link"><BrandIcon name="linkedin" className="h-4 w-4 shrink-0" /> LinkedIn</MagneticElement>
                     </div>
                 </div>
             </div>
