@@ -7,7 +7,7 @@ import { gsap } from "gsap";
 import MagneticElement from "./MagneticElement";
 import AppIcon from "./AppIcon";
 import BrandIcon from "./BrandIcon";
-import portraitImg from "@/public/assets/foto_orang.jpg";
+import portraitImg from "@/public/assets/foto_formal.jpg";
 import mark from "@/public/assets/logo-nonbg.png";
 
 export default function Hero() {
@@ -49,12 +49,12 @@ export default function Hero() {
 
     return (
         <section ref={containerRef} className="relative min-h-[calc(100dvh-4rem)] overflow-hidden px-4 pb-16 pt-20 sm:px-8 sm:pb-24 sm:pt-28 lg:px-12">
-            <Image src={mark} alt="" aria-hidden="true" className="pointer-events-none absolute -right-24 top-24 z-0 w-[min(48vw,560px)] opacity-[0.07] sm:-right-16 sm:top-28" />
+            <Image src={mark} alt="" aria-hidden="true" sizes="(min-width: 1200px) 560px, 48vw" className="pointer-events-none absolute -right-24 top-24 z-0 w-[min(48vw,560px)] opacity-[0.07] sm:-right-16 sm:top-28" />
             <div className="relative z-10 mx-auto grid w-full max-w-[1200px] items-end gap-10 md:grid-cols-[0.92fr_1.08fr] md:gap-12 lg:grid-cols-[minmax(300px,0.75fr)_minmax(0,1.25fr)] lg:gap-20">
                 <div data-portrait className="artifact-frame relative mx-auto aspect-[4/5] w-full max-w-[320px] rotate-[-2deg] md:mx-0 md:max-w-[390px]">
                     <div className="absolute -bottom-3 -right-3 h-full w-full border border-[var(--identity)] bg-[var(--identity-soft)]" aria-hidden="true" />
                     <div className="relative h-full w-full overflow-hidden bg-[var(--navy)]">
-                        <Image src={portraitImg} alt={t("portraitAlt")} fill priority sizes="(min-width: 1024px) 34vw, 82vw" className="object-cover grayscale-[20%] contrast-105" />
+                        <Image src={portraitImg} alt={t("portraitAlt")} fill priority sizes="(min-width: 768px) 390px, 320px" className="object-cover grayscale-[20%] contrast-105" />
                     </div>
                     <span className="archive-caption absolute -bottom-8 left-0">Portrait / Firdan Umar / creative technologist</span>
                 </div>

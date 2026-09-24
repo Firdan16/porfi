@@ -72,11 +72,6 @@ export default async function LocaleLayout({
       lang={locale}
       className={`light ${plusJakartaSans.variable} ${cormorantGaramond.variable}`}
     >
-      <head>
-        <link rel="icon" href="/logo-nonbg.png" type="image/png" />
-        <link rel="shortcut icon" href="/logo-nonbg.png" />
-        <link rel="apple-touch-icon" href="/logo-nonbg.png" />
-      </head>
       <body className="antialiased">
         <NextIntlClientProvider messages={clientMessages}>
           {children}

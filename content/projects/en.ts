@@ -28,31 +28,31 @@ export const projects: Project[] = [
         playStoreUrl: "https://play.google.com/store/apps/details?id=id.bapli.idrisiyyah&hl=id",
         appStoreUrl: "https://apps.apple.com/app/suluk/id6751481427"
     },
-    {
-        id: 2,
-        kind: "app",
-        title: "Travelogi",
-        description: "A comprehensive Islamic service platform specializing in Hajj and Umrah travel booking. Seamlessly integrates pilgrimage packages and digital transactions with rich religious features, including an interactive Al-Quran, accurate prayer schedules, and a Qibla compass.",
-        category: "Mobile App",
-        version: "ACTIVE",
-        mainImage: "/assets/travelogi/Travelogi - 1.png",
-        images: [
-            "/assets/travelogi/Travelogi - 1.png",
-            "/assets/travelogi/Travelogi - 2.png",
-            "/assets/travelogi/Travelogi - 3.png",
-            "/assets/travelogi/Travelogi - 4.png",
-            "/assets/travelogi/Travelogi - 5.png"
-        ],
-        features: [
-            { icon: "menu_book", text: "Integrated Quran", description: "Digital Al-Quran with surah/verse navigation, tafsir, and Arabic fonts." },
-            { icon: "explore", text: "Islamic Services", description: "Location-based prayer time calculations and Qibla compass." },
-            { icon: "send", text: "Hajj & Umrah Packages", description: "Easy selection, booking, and real-time monitoring of sacred pilgrimage journeys." },
-            { icon: "revenuecat", text: "Financial Center", description: "Bill payments, digital wallet, and transfer services in a single app." }
-        ],
-        tech: ["Flutter", "Bloc", "Provider", "GetIt", "Firebase"],
-        layout: "reverse",
-        color: "#042f2e"
-    },
+    // {
+    //     id: 2,
+    //     kind: "app",
+    //     title: "Travelogi",
+    //     description: "A comprehensive Islamic service platform specializing in Hajj and Umrah travel booking. Seamlessly integrates pilgrimage packages and digital transactions with rich religious features, including an interactive Al-Quran, accurate prayer schedules, and a Qibla compass.",
+    //     category: "Mobile App",
+    //     version: "ACTIVE",
+    //     mainImage: "/assets/travelogi/Travelogi - 1.png",
+    //     images: [
+    //         "/assets/travelogi/Travelogi - 1.png",
+    //         "/assets/travelogi/Travelogi - 2.png",
+    //         "/assets/travelogi/Travelogi - 3.png",
+    //         "/assets/travelogi/Travelogi - 4.png",
+    //         "/assets/travelogi/Travelogi - 5.png"
+    //     ],
+    //     features: [
+    //         { icon: "menu_book", text: "Integrated Quran", description: "Digital Al-Quran with surah/verse navigation, tafsir, and Arabic fonts." },
+    //         { icon: "explore", text: "Islamic Services", description: "Location-based prayer time calculations and Qibla compass." },
+    //         { icon: "send", text: "Hajj & Umrah Packages", description: "Easy selection, booking, and real-time monitoring of sacred pilgrimage journeys." },
+    //         { icon: "revenuecat", text: "Financial Center", description: "Bill payments, digital wallet, and transfer services in a single app." }
+    //     ],
+    //     tech: ["Flutter", "Bloc", "Provider", "GetIt", "Firebase"],
+    //     layout: "reverse",
+    //     color: "#042f2e"
+    // },
     {
         id: 3,
         kind: "app",
@@ -79,7 +79,9 @@ export const projects: Project[] = [
         ],
         tech: ["Flutter", "Firebase", "Provider", "Google Fonts"],
         layout: "normal",
-        color: "#451a03"
+        color: "#451a03",
+        playStoreUrl: "https://play.google.com/store/apps/details?id=com.vellum.vellum&pcampaignid=web_share",
+        appStoreUrl: "https://apps.apple.com/id/app/bookglance-book-summaries/id6809606778",
     },
     {
         id: 4,
@@ -105,6 +107,8 @@ export const projects: Project[] = [
         tech: ["Flutter", "Firebase", "Vertex AI", "Node.js"],
         layout: "reverse",
         color: "#1e1b4b",
+        playStoreUrl: "https://play.google.com/store/apps/details?id=com.photo_ai.photo_ai&pcampaignid=web_share",
+        appStoreUrl: "https://apps.apple.com/id/app/picglow-ai-photo-generator/id6755968576",
     },
     {
         id: 5,
@@ -154,7 +158,9 @@ export const projects: Project[] = [
         ],
         tech: ["Flutter", "Firebase", "Grok AI", "RevenueCat", "Node.js"],
         layout: "reverse",
-        color: "#064e3b"
+        color: "#064e3b",
+        playStoreUrl: "https://play.google.com/store/apps/details?id=app.lifeos.lifesimulator.lifeos&pcampaignid=web_share",
+        appStoreUrl: "https://apps.apple.com/id/app/manylives-life-simulator-game/id6811410273",
     },
     {
         id: 7,
@@ -170,8 +176,7 @@ export const projects: Project[] = [
             "/assets/musicai/Musicai - 3.png",
             "/assets/musicai/Musicai - 4.png",
             "/assets/musicai/Musicai - 5.png",
-            "/assets/musicai/Musicai - 6.png",
-            "/assets/musicai/Musicai - 7.png"
+            "/assets/musicai/Musicai - 6.png"
         ],
         features: [
             { icon: "auto_fix_high", text: "Google Lyria Synthesis", description: "Generates 30s clips or full-length tracks using specialized Lyria audio models." },

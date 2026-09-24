@@ -23,13 +23,14 @@ interface DemoClipProps {
   poster: string;
   label: string;
   className?: string;
+  sizes?: string;
 }
 
-export default function DemoClip({ src, poster, label, className = "" }: DemoClipProps) {
+export default function DemoClip({ src, poster, label, className = "", sizes = "(min-width: 1024px) 380px, 180px" }: DemoClipProps) {
   const reducedMotion = useSyncExternalStore(subscribeReducedMotion, getReducedMotionSnapshot, getReducedMotionServerSnapshot);
 
   if (reducedMotion) {
-    return <Image src={poster} alt={label} fill sizes="(min-width: 1024px) 52vw, 92vw" className={`${className} object-contain`} />;
+    return <Image src={poster} alt={label} fill sizes={sizes} className={`${className} object-contain`} />;
   }
 
   return (

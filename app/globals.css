@@ -240,10 +240,13 @@ select:focus-visible {
 
 .section-deferred {
   content-visibility: auto;
-  contain-intrinsic-size: 1px 900px;
+  /* `auto` lets the browser remember each section's real rendered height after its first pass,
+     instead of trusting a single guessed value for sections that vary from ~900px to ~2400px. */
+  contain-intrinsic-size: auto 1200px;
 }
 
 .bg-noise {
+  contain: paint;
   background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.26"/%3E%3C/svg%3E');
 }
 
@@ -293,6 +296,51 @@ select:focus-visible {
 .tactile-btn:active,
 .tactile-btn-primary:active {
   transform: translateY(1px) scale(0.985);
+}
+
+.store-btn {
+  display: inline-flex;
+  min-height: 48px;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  padding: 0 1.05rem;
+  color: var(--paper-light);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: transform 180ms var(--animate-transition-timing-function-mechanical), background-color 180ms ease, border-color 180ms ease;
+}
+
+.store-btn:hover,
+.store-btn:focus-visible {
+  border-color: var(--identity);
+  background: var(--identity);
+  transform: translateY(-2px);
+}
+
+.store-btn:active {
+  transform: translateY(1px) scale(0.985);
+}
+
+.store-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--ink);
+  background: var(--paper-light);
+  padding: 0.5rem 0.7rem;
+  color: var(--ink);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .magnetic-target {

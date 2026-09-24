@@ -8,6 +8,7 @@ import { useTranslations } from "next-intl";
 import type { Project } from "@/content/projects/types";
 import AppIcon from "./AppIcon";
 import DemoClip from "./DemoClip";
+import { StoreButtons, StoreMarks, hasStoreListing } from "./StoreBadges";
 
 const ProjectModal = dynamic(() => import("./ProjectModal"), { ssr: false });
 
@@ -60,7 +61,7 @@ export default function Projects({ projects }: ProjectsProps) {
                                     <button key={project.id} type="button" ref={(element) => { triggerRefs.current[project.id] = element; }} onClick={() => selectProject(index)} aria-pressed={active} className={`group relative flex w-full items-start gap-3 border-b border-[var(--line)] py-4 pl-0 text-left transition-colors sm:py-5 ${active ? "text-[var(--ink)]" : "text-[var(--ink-soft)] hover:text-[var(--ink)]"}`}>
                                         <span className={`absolute bottom-0 left-0 top-0 w-1 transition-transform ${active ? "scale-y-100" : "scale-y-0 group-hover:scale-y-50"}`} style={{ backgroundColor: accent }} aria-hidden="true" />
                                         <span className="archive-caption pl-3 pt-1" style={{ color: active ? accent : undefined }}>{String(index + 1).padStart(2, "0")}</span>
-                                        <span className="min-w-0 flex-1"><span className={`block font-serif text-2xl leading-none sm:text-3xl ${active ? "font-semibold" : "font-normal"}`}>{project.title}</span><span className="mt-2 block text-[10px] font-bold uppercase tracking-[0.12em] opacity-65">{project.category}</span></span>
+                                        <span className="min-w-0 flex-1"><span className={`block font-serif text-2xl leading-none sm:text-3xl ${active ? "font-semibold" : "font-normal"}`}>{project.title}</span><span className="mt-2 flex flex-wrap items-center gap-x-2.5 gap-y-1"><span className="text-[10px] font-bold uppercase tracking-[0.12em] opacity-65">{project.category}</span><StoreMarks project={project} showLabels iconClassName="h-3.5 w-3.5 shrink-0" className="text-[10px] font-bold uppercase tracking-[0.12em]" style={{ color: accent }} /></span></span>
                                         <AppIcon name="arrow_forward_ios" className={`mt-1 h-3.5 w-3.5 shrink-0 transition-transform ${active ? "translate-x-1 opacity-100" : "opacity-0 group-hover:opacity-100"}`} />
                                     </button>
                                 );
@@ -71,11 +72,18 @@ export default function Projects({ projects }: ProjectsProps) {
                     <div ref={stageRef} className="order-1 lg:order-2" style={{ ["--chapter" as string]: activeAccent }}>
                         <div className="relative overflow-hidden py-2 sm:py-4" style={{ backgroundColor: activeProject.color }}>
                             <div className="absolute inset-0 opacity-20" style={{ background: `linear-gradient(135deg, ${activeAccent}, transparent 54%)` }} />
+                            {hasStoreListing(activeProject) && (
+                                <span className="store-badge absolute left-3 top-3 z-20 sm:left-5 sm:top-5">
+                                    <span className="h-1.5 w-1.5 shrink-0 bg-[var(--identity)]" aria-hidden="true" />
+                                    <StoreMarks project={activeProject} iconClassName="h-3.5 w-3.5 shrink-0" />
+                                    <span>{t("liveNow")}</span>
+                                </span>
+                            )}
                             <button type="button" onClick={() => openProject(activeProject)} aria-label={t("openDetails", { title: activeProject.title })} className="group relative mx-auto block aspect-[1.12/1] w-[88%] text-left sm:aspect-[1.28/1] sm:w-[84%] lg:w-[82%]">
                                 {activeProject.kind === "package" && activeProject.demoVideo ? (
-                                    <DemoClip src={activeProject.demoVideo} poster={activeProject.mainImage ?? ""} label={t("interfaceAlt", { title: activeProject.title })} className="absolute inset-0 h-full w-full transition-transform duration-700 group-hover:scale-[1.02]" />
+                                    <DemoClip src={activeProject.demoVideo} poster={activeProject.mainImage ?? ""} label={t("interfaceAlt", { title: activeProject.title })} sizes="(min-width: 640px) 230px, 150px" className="absolute inset-0 h-full w-full transition-transform duration-700 group-hover:scale-[1.02]" />
                                 ) : (
-                                    <Image src={activeProject.mainImage ?? ""} alt={t("interfaceAlt", { title: activeProject.title })} fill sizes="(min-width: 1024px) 48vw, 82vw" className="object-contain transition-transform duration-700 group-hover:scale-[1.025]" />
+                                    <Image src={activeProject.mainImage ?? ""} alt={t("interfaceAlt", { title: activeProject.title })} fill sizes="(min-width: 640px) 230px, 150px" className="object-contain transition-transform duration-700 group-hover:scale-[1.025]" />
                                 )}
                             </button>
                         </div>
@@ -84,6 +92,7 @@ export default function Projects({ projects }: ProjectsProps) {
                                 <p className="archive-caption mb-3" style={{ color: activeAccent }}>{activeProject.tech.slice(0, 3).join(" / ")}</p>
                                 <h3 className="font-serif text-5xl font-semibold leading-[0.84] tracking-[-0.05em] text-[var(--ink)] sm:text-7xl">{activeProject.title}</h3>
                                 <p className="mt-5 max-w-xl text-sm leading-[1.75] text-[var(--ink-soft)] sm:text-base">{activeProject.description}</p>
+                                {hasStoreListing(activeProject) && <div className="mt-7"><p className="archive-caption mb-3" style={{ color: activeAccent }}>{t("availableOn")}</p><StoreButtons project={activeProject} /></div>}
                             </div>
                             <div className="flex items-end sm:pb-1"><button type="button" onClick={() => openProject(activeProject)} className="archive-link">{t("viewProject")} <AppIcon name="arrow_forward_ios" className="h-3 w-3" /></button></div>
                         </div>

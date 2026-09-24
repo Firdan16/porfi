@@ -1,11 +1,12 @@
+/* Only namespaces consumed by a "use client" component belong here. `experience` and `footer` are
+   rendered by Server Components, which read from the request config instead, so shipping them to
+   the client would duplicate every string into the page payload. */
 const CLIENT_NAMESPACES = [
   "nav",
   "hero",
   "techStack",
-  "experience",
   "hermesPersonas",
   "projects",
-  "footer",
 ] as const;
 
 type ClientNamespace = (typeof CLIENT_NAMESPACES)[number];

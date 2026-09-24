@@ -1,6 +1,3 @@
-"use client";
-
-import React from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import MagneticElement from "./MagneticElement";
@@ -13,7 +10,7 @@ export default function Footer() {
 
     return (
         <footer id="contact" className="relative overflow-hidden border-t border-white/15 bg-[var(--navy)] px-4 py-20 text-[var(--paper-light)] sm:px-8 sm:py-24 lg:px-12 lg:py-32">
-            <Image src={mark} alt="" aria-hidden="true" className="pointer-events-none absolute -bottom-24 -right-20 w-[min(52vw,620px)] opacity-[0.08] brightness-0 invert sm:-bottom-32 sm:-right-10" />
+            <Image src={mark} alt="" aria-hidden="true" sizes="(min-width: 1200px) 620px, 52vw" className="pointer-events-none absolute -bottom-24 -right-20 w-[min(52vw,620px)] opacity-[0.08] brightness-0 invert sm:-bottom-32 sm:-right-10" />
             <div className="relative z-10 mx-auto max-w-[1200px]">
                 <div className="grid gap-14 lg:grid-cols-[minmax(0,1.1fr)_minmax(300px,0.9fr)] lg:gap-24">
                     <div>

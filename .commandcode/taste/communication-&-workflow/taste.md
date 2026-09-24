@@ -8,3 +8,5 @@
 - Expects the agent to derive and own the plan itself ("coba buat best plan", "silahkan pikirkan") rather than asking many clarifying questions. Confidence: 0.7
 - Prefers strict scope control: when specifying one section to redesign, the agent should leave all other sections untouched until explicitly requested. Confidence: 0.95
 - Prefers temporary feature replacement to be non-destructive: hide or comment out the old UI and preserve its component/code for possible restoration instead of deleting it. Confidence: 0.98
+- Ships to production itself and asks for a fresh end-to-end "final review" pass right before deploying; expects the agent to re-verify from scratch rather than trust earlier results, and to surface deploy blockers (e.g. files used by code but never committed / not in the git index). Confidence: 0.8
+- Handles asset preparation personally (e.g. compressing image files himself) and expects the agent's review to account for those out-of-band changes to the repo. Confidence: 0.6
